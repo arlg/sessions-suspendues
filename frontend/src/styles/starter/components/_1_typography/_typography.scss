@@ -1,0 +1,180 @@
+/* ====================
+   Typography
+   ==================== */
+
+/* font families */
+$font-family-primary: "Arial", sans-serif;
+$font-family-secondary: Georgia, "Times New Roman", Times, serif;
+$base-font-family: $font-family-primary;
+
+/* base unitless line heights */
+$base-line-height: 1.4;
+$heading-line-height: 1.2;
+
+/* font sizes */
+$font-size-1: rem(40px);
+$font-size-2: rem(30px);
+$font-size-3: rem(24px);
+$font-size-4: rem(2px);
+$font-size-5: rem(18px);
+$font-size-6: rem(10);
+$font-size-base: $font-size-5;
+
+/* font weights */
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+/* letter spacing */
+$letter-spacing-base: 0;
+
+/* applied font weights */
+$font-weight-base: $font-weight-normal;
+$heading-font-weight: $font-weight-bold;
+
+/* list variables */
+$list-margin-left: 2rem;
+$unordered-list-style: disc;
+
+/* margins */
+$heading-margin-bottom: rem(10px);
+$paragraph-margin-bottom: rem(10px);
+
+/* ====================
+   global font settings
+   ==================== */
+
+html {
+	/* font smoothing */
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+
+	/* base font family */
+	font-family: $base-font-family;
+
+	/* keep browsers font-size settings - 1rem equals 16px */
+	font-size: 100%;
+
+	/* base line height */
+	line-height: $base-line-height;
+
+	/* base font weight */
+	font-weight: $font-weight-base;
+
+	/* base letter spacing */
+	letter-spacing: $letter-spacing-base;
+}
+
+body {
+	font-size: $font-size-base;
+}
+
+/* ====================
+   headings
+   ==================== */
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	margin-bottom: $heading-margin-bottom;
+	line-height: $heading-line-height;
+	font-weight: $heading-font-weight;
+}
+
+/* heading sizes and spacing */
+h1,
+.h1 {
+	font-size: $font-size-1;
+}
+
+h2,
+.h2 {
+	font-size: $font-size-2;
+}
+
+h3,
+.h3 {
+	font-size: $font-size-3;
+}
+
+h4,
+.h4 {
+	font-size: $font-size-4;
+}
+
+h5,
+.h5 {
+	font-size: $font-size-5;
+}
+
+h6,
+.h6 {
+	font-size: $font-size-6;
+}
+
+/* ====================
+   additional type styles
+   ==================== */
+
+/* small font size */
+small {
+	font-size: $font-size-6;
+}
+
+/* additional font weights */
+strong,
+b {
+	font-weight: $font-weight-bold;
+}
+
+/* block spacing */
+p,
+dl,
+ol,
+ul,
+blockquote,
+figcaption {
+	margin: 0 0 $paragraph-margin-bottom;
+}
+
+/* link inside <p> */
+p {
+	a {
+		font-weight: $font-weight-bold;
+	}
+}
+
+/* blockquote */
+blockquote p {
+	&::before {
+		content: "\201c";
+	}
+	&::after {
+		content: "\201d";
+	}
+}
+
+/* ====================
+   list styles
+   ==================== */
+ol,
+ul {
+	margin-left: $list-margin-left;
+}
+
+/* unordered list bullets */
+ul {
+	list-style: $unordered-list-style;
+}

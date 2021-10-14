@@ -1,0 +1,35 @@
+/* -------
+	CONVERT PX TO REM
+-------- */
+
+/*
+ * based on
+ *	https://css-tricks.com/snippets/sass/px-to-em-functions/
+ */
+
+$browser-context: 16;
+
+@function rem($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+/*
+ * Examples (both examples give the same result) :
+
+	h1 {
+		font-size: rem(32);
+	}
+
+	h1 {
+		font-size: rem(32px);
+	}
+ *
+ */

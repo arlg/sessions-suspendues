@@ -1,0 +1,49 @@
+/*
+	@mixin flexgrid
+	Utilisation de marge négative : !! Ne pas appliquer cela à un .container !!
+	@arg $break Passer en argument la liste des breakpoint (mobile-first)
+		et le nombre de colonnes associé, et la gouttière de ce breakpoint
+*/
+@mixin flexgrid(
+	$breaks: (
+		("min-width: #{rem(540px)}", 2, rem(20px)),
+		("min-width: #{rem(720px)}", 3, rem(20px)),
+		("min-width: #{rem(1024px)}", 4, rem(20px))
+	)
+) {
+	// A partir du premier media query, on applique la grille (pas de grid avant)
+	$_firstBreak: nth(nth($breaks, 1), 1);
+
+	@media (#{$_firstBreak}) {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	// Marge négative du parent en fonction de la gouttiere
+	@each $break in $breaks {
+		$_gutter: nth($break, 3);
+		$_break: nth($break, 1);
+		@media (#{$_break}) {
+			margin-left: -1 * $_gutter; // Technique de la marge négative flex
+		}
+	}
+
+	> * {
+		// 1 colonne
+		width: 100%;
+
+		// @each
+		// On boucle sur les breaks
+		@each $break in $breaks {
+			// Définition des variables pour la boucle courante
+			$_break: nth($break, 1); // Le break courant
+			$_cols: nth($break, 2); // Le nbr de colonnes courant
+			$_gutter: nth($break, 3); // La gouttiere courante
+
+			@media (#{$_break}) {
+				width: calc(100% / #{$_cols} - #{$_gutter});
+				margin-left: $_gutter;
+			}
+		}
+	}
+}

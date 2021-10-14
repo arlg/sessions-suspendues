@@ -1,0 +1,44 @@
+/* ------------------- */
+
+/* ==Article           */
+
+/* ------------------- */
+
+/* Styles du Wysiwig / RTE Wordpress par défaut dans les articles */
+.article-content {
+	ul {
+		list-style-type: disc;
+		margin-left: rem(20px);
+	}
+
+	a:not(.button) {
+		text-decoration: underline;
+		font-weight: $font-weight-bold;
+	}
+
+	> * + h2,
+	> * + h3,
+	> * + h4 {
+		margin-top: rem(25px);
+		margin-bottom: rem(10px);
+	}
+
+	iframe {
+		width: 100%;
+		margin: rem(40px) auto;
+	}
+
+	.embed-container {
+		margin-bottom: rem(20px);
+
+		iframe {
+			margin: 0;
+		}
+	}
+
+	blockquote {
+		margin: $paragraph-margin-bottom 0;
+		font-size: calc(1.33 * #{$font-size-base});
+		font-weight: $font-weight-bold;
+	}
+}

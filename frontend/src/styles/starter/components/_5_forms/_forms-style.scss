@@ -1,0 +1,121 @@
+/* ====================
+   general form styling
+   ==================== */
+
+fieldset {
+	margin: rem(10px) 0;
+	padding: 0;
+	border: 0 solid transparent;
+
+	& legend {
+		margin-bottom: rem(10px);
+		font-weight: bold;
+	}
+}
+
+label {
+	display: block;
+	margin-bottom: $label-margin-bottom;
+	font-weight: bold;
+}
+
+input,
+select,
+textarea {
+	outline: 0;
+}
+
+/* ====================
+   general mixin
+   ==================== */
+
+@mixin input {
+	border-width: $input-border-width;
+	border-style: solid;
+	border-color: $input-border-color;
+	border-radius: $input-border-radius;
+	font-weight: $font-weight-normal;
+	color: $input-text-color;
+	background-color: $input-background-color;
+	transition: border-color $speed $easing, color $speed $easing, background-color $speed $easing;
+	&::placeholder {
+		color: $input-placeholder-color;
+	}
+	&:hover {
+		border-color: $input-hover-border-color;
+		color: $input-hover-text-color;
+		background-color: $input-hover-background-color;
+		&::placeholder {
+			color: $input-placeholder-color;
+		}
+	}
+	&:focus,
+	&:hover:focus {
+		border-color: $input-focus-border-color;
+		color: $input-focus-text-color;
+		background-color: $input-focus-background-color;
+		&::placeholder {
+			color: $input-placeholder-color;
+		}
+	}
+	&:disabled,
+	&:disabled:hover,
+	&:disabled:focus {
+		border-color: $input-disabled-border-color;
+		color: $input-disabled-text-color;
+		background-color: $input-disabled-background-color;
+		cursor: not-allowed;
+	}
+	&:disabled::placeholder {
+		color: $input-disabled-placeholder-color;
+	}
+}
+
+/* ====================
+   text inputs
+   ==================== */
+
+input[type="text"],
+/* input[type="password"], */
+input[type="url"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+input[type="number"],
+/* input[type="date"], */
+/* input[type="month"], */
+/* input[type="week"], */
+/* input[type="datetime-local"], */
+/* input[type="color"], */
+select {
+	@include input;
+	display: $input-display;
+	width: $input-width;
+	height: $input-height;
+	padding: $input-padding-vertical $input-padding-horizontal;
+}
+
+/* ====================
+   textareas
+   ==================== */
+
+textarea {
+	@include input;
+	display: $textarea-display;
+	width: $textarea-width;
+	height: $textarea-height;
+	resize: vertical;
+	padding: $textarea-padding-vertical $textarea-padding-horizontal;
+}
+
+/* ====================
+   selects
+   ==================== */
+
+select {
+	background-image: $select-background-image;
+	background-repeat: no-repeat;
+	background-position: $select-background-position;
+	background-size: $select-background-size;
+	cursor: pointer;
+}

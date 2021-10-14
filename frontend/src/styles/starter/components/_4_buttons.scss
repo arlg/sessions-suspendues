@@ -1,0 +1,94 @@
+/* ====================
+	button variables
+	==================== */
+
+$button-height: rem(40px);
+$button-vertical-padding: 0;
+$button-horizontal-padding: rem(15px);
+$button-border-width: 1px;
+$button-border-radius: $border-radius;
+$button-font-weight: $font-weight-bold;
+
+/* static colors */
+$button-border-color: $color-primary;
+$button-text-color: #fff;
+$button-background-color: $color-primary;
+
+/* hover colors */
+$button-hover-border-color: transparent;
+$button-hover-text-color: #fff;
+$button-hover-background-color: darken($color-primary, 50%);
+
+/* focus  + active colors */
+$button-focus-border-color: transparent;
+$button-focus-text-color: #fff;
+$button-focus-background-color: darken($color-primary, 50%);
+
+/* disabled colors */
+$button-disabled-border-color: transparent;
+$button-disabled-text-color: $disabled-color;
+$button-disabled-background-color: $gray-lightest;
+
+/* ====================
+   generic button mixin
+   ==================== */
+
+@mixin button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	height: $button-height;
+	padding: $button-vertical-padding $button-horizontal-padding;
+	border: $button-border-width solid $button-border-color;
+	border-radius: $button-border-radius;
+	outline: 0;
+	text-decoration: none;
+	font-weight: $button-font-weight;
+	white-space: nowrap;
+	color: $button-text-color;
+	background-color: $button-background-color;
+	transition: border-color $speed $easing, color $speed $easing, background-color $speed $easing;
+	cursor: pointer;
+	&:hover {
+		border-color: $button-hover-border-color;
+		color: $button-hover-text-color;
+		background-color: $button-hover-background-color;
+	}
+
+	&:focus,
+	&:active {
+		border-color: $button-focus-border-color;
+		color: $button-focus-text-color;
+		background-color: $button-focus-text-color;
+	}
+
+	&:disabled,
+	&:disabled:hover,
+	&:disabled:focus,
+	&:disabled:active {
+		border-color: $button-disabled-border-color;
+		color: $button-disabled-text-color;
+		background-color: $button-disabled-background-color;
+		cursor: not-allowed;
+	}
+
+	/* Responsive : Overflow du texte */
+	@media (#{$break-max-sm}) {
+		white-space: normal;
+		word-wrap: break-word;
+	}
+}
+
+.button {
+	&--blue {
+		// Exemple de modificateur de bouton
+	}
+}
+
+/* applying the mixin */
+.button,
+input[type="submit"],
+input[type="button"] {
+	@include button;
+}

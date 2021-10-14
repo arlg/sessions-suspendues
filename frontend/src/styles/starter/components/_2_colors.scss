@@ -1,0 +1,63 @@
+/* ====================
+	color variables
+	==================== */
+
+/* semantic palette */
+$color-primary: #b89d72;
+$color-text: #01052d;
+
+/* Site - colors : */
+$color-xxx: #bababa;
+
+/* gray palette */
+$gray-dark: hsl(0, 0%, 25%);
+$gray: hsl(0, 0%, 50%);
+$gray-light: hsl(0, 0%, 75%);
+$gray-lighter: hsl(0, 0%, 90%); /* Utilisé sur les inputs */
+$gray-lightest: hsl(0, 0%, 98%); /* Utilisé sur les inputs */
+
+/* applied colors */
+$html-background-color: #fff;
+$body-background-color: #fff;
+$selection-color: lighten($color-primary, 85%);
+$disabled-color: $gray-light;
+
+/* ====================
+	link variables
+	==================== */
+$link-color: $color-primary;
+$link-hover-color: darken($color-primary, 50%);
+
+/* ====================
+   applied colors
+   ==================== */
+
+html {
+	background-color: $html-background-color;
+}
+
+body {
+	color: $color-text;
+	background-color: $body-background-color;
+}
+
+a {
+	text-decoration: none;
+	color: $link-color;
+	transition: color $speed $easing;
+	&:hover {
+		text-decoration: none;
+		color: $link-hover-color;
+	}
+	&:focus {
+		color: $link-hover-color;
+	}
+	&:active {
+		color: $link-hover-color;
+	}
+}
+
+/* selections */
+::selection {
+	background-color: $selection-color;
+}

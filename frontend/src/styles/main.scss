@@ -1,0 +1,52 @@
+/*!
+	@author Le Petit Garage
+*/
+
+/* ------------------- */
+
+/* ==Table Of Content  */
+
+/* ------------------- */
+
+/*
+  - Reset
+  - variables
+  - Utility
+  - a11y - prefers-reduced-motion
+  - a11y - skip-links
+  - Colors
+  - Buttons
+  - Forms
+  - Common
+  - Structure
+  - Typography
+*/
+
+/* Reset */
+@import "_0_reset/reset";
+
+/* Units */
+@import "starter/units";
+
+/* Variables */
+@import "starter/variables";
+
+/* Components */
+@import "starter/components/_1_typography/fonts";
+@import "starter/components/_1_typography/typography";
+
+@import "starter/components/_2_colors";
+@import "starter/components/_3_structure";
+@import "starter/components/_4_buttons";
+
+/* Forms */
+@import "starter/components/_5_forms/forms-variables";
+@import "starter/components/_5_forms/forms-style";
+
+/* Accessibilité des skip-links */
+@import "starter/a11y/skip-links";
+
+/* ====================
+   Project Styles
+   ==================== */
+@import "project/project";

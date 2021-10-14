@@ -1,0 +1,55 @@
+/* ====================
+Common / Site Globals and hiq resets
+==================== */
+@import "common.scss";
+
+/* ====================
+   PLUGINS
+   ==================== */
+
+/** Galerie **/
+// @import "plugins/baguettebox.scss";
+// @import "plugins/flickity.scss";
+
+/* Classes utilitaires */
+@import "utility.scss";
+
+/* ====================
+   WORDPRESS
+   ==================== */
+@import "wordpress/wordpress";
+@import "wordpress/article.scss";
+@import "wordpress/breadcrumbs.scss";
+@import "wordpress/pagination.scss";
+@import "wordpress/responsive-embeds.scss";
+@import "wordpress/entry-content.scss";
+@import "wordpress/menu/navigation.scss";
+@import "wordpress/menu/menu-modal.scss";
+
+/* ====================
+   Mixins
+   ==================== */
+@import "mixins/mixins.scss";
+@import "mixins/flexgrid.scss";
+
+/* ====================
+   Layout
+   ==================== */
+@import "layout/layout.scss";
+
+/* ====================
+   Components
+   ==================== */
+@import "components/header.scss";
+@import "components/footer.scss";
+
+/* ====================
+   Modules
+   ==================== */
+@import "modules/menu.scss";
+@import "modules/buttons.scss";
+
+/* ====================
+   Helpers
+   ==================== */
+// @import "grille-integration.scss";

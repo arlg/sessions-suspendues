@@ -1,0 +1,30 @@
+/* ------------------- */
+
+/* ==Breadcrumbs       */
+
+/* ------------------- */
+.breadcrumbs {
+	list-style-type: none;
+	font-family: $font-family-primary;
+
+	span,
+	a {
+		font-size: rem(10px);
+	}
+
+	li {
+		display: inline-block;
+
+		&::after {
+			display: inline-block;
+			margin: 0 rem(5px);
+			vertical-align: text-top;
+			content: " › ";
+		}
+
+		&:last-child::after {
+			display: none;
+			content: "";
+		}
+	}
+}

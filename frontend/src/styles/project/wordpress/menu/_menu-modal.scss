@@ -1,0 +1,364 @@
+/* Cover Modals ------------------------------ */
+
+.cover-modal {
+  display: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.cover-modal::-webkit-scrollbar {
+  display: none !important;
+}
+
+.cover-modal.show-modal {
+  display: block;
+  cursor: pointer;
+}
+
+.cover-modal.show-modal > * {
+  cursor: default;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*	5. Menu Modal
+/* -------------------------------------------------------------------------- */
+
+.menu-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 99999rem;
+  bottom: 0;
+  left: -99999rem;
+  z-index: 99;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #fff;
+  opacity: 0;
+  transition: opacity 0.25s ease-in, left 0s 0.25s, right 0s 0.25s;
+}
+
+.menu-modal.show-modal {
+  display: flex;
+}
+
+.menu-modal.active {
+  right: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity 0.25s ease-out;
+}
+
+.menu-modal-inner {
+  display: flex;
+  justify-content: stretch;
+  width: 100%;
+  overflow: auto;
+  background: #fff;
+  -ms-overflow-style: auto;
+}
+
+.menu-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  // width: calc(100% - 4rem);
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  // Même padding que la structure de notre site et du .container
+  padding: 0 rem(15px);
+}
+
+button.close-nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  // width: 100%;
+  // max-width: rem(50px);
+  margin-left: auto;
+  padding: 0;
+  // padding: rem(20px) 0;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button.close-nav-toggle svg {
+  width: rem(16px);
+  height: rem(16px);
+}
+
+button.close-nav-toggle .toggle-text {
+  margin-right: rem(16px);
+}
+
+.menu-modal .menu-top {
+  flex-shrink: 0;
+  // Ajout LPG
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: rem(20px) 0;
+  }
+}
+
+.mobile-nav-toggle {
+  cursor: pointer;
+}
+
+/* Main Menu --------------------------------- */
+
+.modal-menu {
+  position: relative;
+  left: calc(50% - 50vw);
+  width: 100vw;
+}
+
+.modal-menu li {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #dedfdf;
+  line-height: 1;
+  flex-wrap: wrap;
+}
+
+.modal-menu > li > a,
+.modal-menu > li > .ancestor-wrapper > a {
+  font-size: rem(20px);
+  font-weight: 700;
+//	letter-spacing: -0.0375em;
+}
+
+.modal-menu > li:last-child {
+  border-bottom-width: 1px;
+}
+
+.modal-menu .ancestor-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-menu a {
+  display: block;
+  width: 100%;
+  padding: rem(20px) rem(25px);
+  text-decoration: none;
+  color: $color-text;
+}
+
+.modal-menu a:focus,
+.modal-menu a:hover,
+.modal-menu li.current-menu-item > .ancestor-wrapper > a,
+.modal-menu li.current_page_ancestor > .ancestor-wrapper > a {
+  text-decoration: underline;
+}
+
+button.sub-menu-toggle {
+  margin: 1rem 0;
+  padding: 0 rem(25px);
+  border-left: 0.1rem solid #dedfdf;
+  flex-shrink: 0;
+}
+
+button.sub-menu-toggle svg {
+  width: rem(15px);
+  height: rem(9px);
+  transition: transform 0.15s linear;
+}
+
+button.sub-menu-toggle.active svg {
+  transform: rotate(180deg);
+}
+
+.modal-menu ul {
+  display: none;
+  width: 100%;
+  margin: 0;
+}
+
+.modal-menu ul li {
+  border-left-width: rem(10px);
+}
+
+.modal-menu ul li a {
+  font-weight: 500;
+  color: inherit;
+}
+
+/* Main menu animation ----------------------- */
+
+.menu-wrapper .menu-item {
+  position: relative;
+}
+
+.menu-wrapper .active {
+  display: block;
+}
+
+.menu-wrapper.is-toggling {
+  pointer-events: none;
+}
+
+.menu-wrapper.is-toggling .menu-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.menu-wrapper.is-toggling .menu-bottom .social-menu .menu-item {
+  width: auto;
+}
+
+.menu-wrapper.is-animating .menu-item,
+.menu-wrapper.is-animating .toggling-target {
+  transition-duration: 250ms;
+}
+
+.menu-wrapper.is-animating .menu-item {
+  transition-property: transform;
+}
+
+.menu-wrapper.is-toggling .toggling-target {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+.menu-wrapper.is-toggling .toggling-target.active {
+  opacity: 0;
+}
+
+.menu-wrapper.is-animating.is-toggling .toggling-target {
+  display: block;
+  transition-property: opacity;
+  opacity: 0;
+}
+
+.menu-wrapper.is-animating.is-toggling .toggling-target.active {
+  opacity: 1;
+}
+
+.menu-wrapper.is-toggling .modal-menu > li:last-child li {
+  border-bottom-width: 1px;
+  border-top-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-wrapper.is-animating .menu-item,
+  .menu-wrapper.is-animating .toggling-target {
+    transition-duration: 1ms !important;
+  }
+}
+
+@media (min-width: rem(700px)) {
+  /* Menu Modal ---------------------------- */
+
+  button.close-nav-toggle {
+    padding: 0;
+    font-size: rem(18px);
+  }
+
+  button.close-nav-toggle svg {
+    width: rem(20px);
+    height: rem(20px);
+  }
+
+  button.close-nav-toggle .toggle-text {
+    margin-right: rem(21px);
+  }
+
+  .modal-menu {
+    left: auto;
+    width: 100%;
+  }
+
+  .modal-menu > li > a,
+  .modal-menu > li > .ancestor-wrapper > a {
+    padding: rem(25px) 0;
+    font-size: rem(24px);
+  }
+
+  .modal-menu ul li {
+    border-left-color: transparent;
+  }
+
+  .modal-menu > li > .ancestor-wrapper > button.sub-menu-toggle {
+    padding: 0 rem(30px);
+  }
+
+  .modal-menu > li > .ancestor-wrapper > button.sub-menu-toggle svg {
+    width: rem(18px);
+    height: rem(11px);
+  }
+
+  .menu-wrapper {
+    // width: calc(100% - rem(80px));
+  }
+}
+
+@media (min-width: rem(1000px)) {
+  /* Menu Modal ---------------------------- */
+
+  .menu-modal {
+    justify-content: flex-end;
+    padding: 0;
+    opacity: 1;
+    transition: background-color 0.3s ease-in, left 0s 0.3s, right 0s 0.3s;
+  }
+
+  .menu-modal.cover-modal {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  .menu-modal.active {
+    background: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease-out;
+  }
+
+  .menu-wrapper.section-inner {
+    // width: calc(100% - rem(80px));
+  }
+
+  .menu-modal-inner {
+    width: rem(50px);
+    padding: 0;
+    box-shadow: 0 0 rem(20px) 0 rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateX(rem(200px));
+    transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+  }
+
+  .menu-modal.active .menu-modal-inner {
+    opacity: 1;
+    transform: translateX(0);
+    transition-timing-function: ease-out;
+  }
+
+  // .mobile-menu {
+  // 	display: none;
+  // }
+
+  // .expanded-menu {
+  // 	display: block;
+  // }
+
+  .menu-bottom {
+    padding: rem(60px) 0;
+  }
+
+  .menu-bottom .social-menu {
+    justify-content: flex-start;
+  }
+}

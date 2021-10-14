@@ -1,0 +1,23 @@
+/* ====================
+     transition variables
+==================== */
+$speed: 0.2s;
+$easing: ease-out;
+
+/* border-radius */
+$border-radius: 0;
+
+// https://www.joshwcomeau.com/animation/css-transitions/
+// Custom easings (supercharged)
+
+/* ease-out */
+$custom-ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+/* ease-in */
+$custom-ease-in: cubic-bezier(0.75, 0, 1, 1);
+
+/* ease-in-out */
+$custom-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+/* ease */
+$custom-ease: cubic-bezier(0.44, 0.21, 0, 1);
