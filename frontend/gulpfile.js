@@ -58,7 +58,7 @@ const browserSync = require("browser-sync").create();
  **/
 
 const SITETYPE = "STATIC"; // Soit "STATIC", soit "WORDPRESS". En mode STATIC, Browsersync crée une adresse localhost
-const SITEURL = "[XXXX].lpg"; // url du projet (vhost), utilisée par BrowserSync en mode proxy, elle est nécessaire si le projet est WORDPRESS
+const SITEURL = "sessions-suspendues.lpg"; // url du projet (vhost), utilisée par BrowserSync en mode proxy, elle est nécessaire si le projet est WORDPRESS
 
 const CONFIG = {
 	URL: SITEURL,
