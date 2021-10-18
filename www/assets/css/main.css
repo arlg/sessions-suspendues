@@ -317,24 +317,20 @@ html {
   background-color: #fff; }
 
 body {
-  color: #01052d;
+  color: #fff;
   background-color: #fff; }
 
 a {
   text-decoration: none;
-  color: #b89d72;
+  color: #ffee52;
   transition: color 0.2s ease-out; }
   a:hover {
     text-decoration: none;
-    color: #1d170e; }
+    color: #524a00; }
   a:focus {
-    color: #1d170e; }
+    color: #524a00; }
   a:active {
-    color: #1d170e; }
-
-/* selections */
-::selection {
-  background-color: white; }
+    color: #524a00; }
 
 /* ====================
      structural variables
@@ -378,7 +374,7 @@ hr {
   height: 1px;
   margin: 1rem 0;
   border: none;
-  background-color: #b89d72; }
+  background-color: #ffee52; }
 
 /* ====================
    media/embeds
@@ -392,71 +388,6 @@ iframe {
 
 svg {
   fill: currentColor; }
-
-/* ====================
-	button variables
-	==================== */
-/* static colors */
-/* hover colors */
-/* focus  + active colors */
-/* disabled colors */
-/* ====================
-   generic button mixin
-   ==================== */
-/* applying the mixin */
-.button,
-input[type="submit"],
-input[type="button"] {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: 2.5rem;
-  padding: 0 0.9375rem;
-  border: 1px solid #b89d72;
-  border-radius: 0;
-  outline: 0;
-  text-decoration: none;
-  font-weight: 700;
-  white-space: nowrap;
-  color: #fff;
-  background-color: #b89d72;
-  transition: border-color 0.2s ease-out, color 0.2s ease-out, background-color 0.2s ease-out;
-  cursor: pointer;
-  /* Responsive : Overflow du texte */ }
-  .button:hover,
-  input[type="submit"]:hover,
-  input[type="button"]:hover {
-    border-color: transparent;
-    color: #fff;
-    background-color: #1d170e; }
-  .button:focus, .button:active,
-  input[type="submit"]:focus,
-  input[type="submit"]:active,
-  input[type="button"]:focus,
-  input[type="button"]:active {
-    border-color: transparent;
-    color: #fff;
-    background-color: #fff; }
-  .button:disabled, .button:disabled:hover, .button:disabled:focus, .button:disabled:active,
-  input[type="submit"]:disabled,
-  input[type="submit"]:disabled:hover,
-  input[type="submit"]:disabled:focus,
-  input[type="submit"]:disabled:active,
-  input[type="button"]:disabled,
-  input[type="button"]:disabled:hover,
-  input[type="button"]:disabled:focus,
-  input[type="button"]:disabled:active {
-    border-color: transparent;
-    color: #bfbfbf;
-    background-color: #fafafa;
-    cursor: not-allowed; }
-  @media (max-width: 33.75rem) {
-    .button,
-    input[type="submit"],
-    input[type="button"] {
-      white-space: normal;
-      word-wrap: break-word; } }
 
 /* Forms */
 /* ====================
@@ -509,7 +440,7 @@ select {
   border-color: #e6e6e6;
   border-radius: 0;
   font-weight: 400;
-  color: #01052d;
+  color: #fff;
   background-color: #e6e6e6;
   transition: border-color 0.2s ease-out, color 0.2s ease-out, background-color 0.2s ease-out;
   display: block;
@@ -532,7 +463,7 @@ select {
   input[type="number"]:hover,
   select:hover {
     border-color: #e6e6e6;
-    color: #01052d;
+    color: #fff;
     background-color: #e6e6e6; }
     input[type="text"]:hover::placeholder,
     input[type="url"]:hover::placeholder,
@@ -555,8 +486,8 @@ select {
   input[type="number"]:hover:focus,
   select:focus,
   select:hover:focus {
-    border-color: #b89d72;
-    color: #b89d72;
+    border-color: #ffee52;
+    color: #ffee52;
     background-color: #e6e6e6; }
     input[type="text"]:focus::placeholder, input[type="text"]:hover:focus::placeholder,
     input[type="url"]:focus::placeholder,
@@ -613,7 +544,7 @@ textarea {
   border-color: #e6e6e6;
   border-radius: 0;
   font-weight: 400;
-  color: #01052d;
+  color: #fff;
   background-color: #e6e6e6;
   transition: border-color 0.2s ease-out, color 0.2s ease-out, background-color 0.2s ease-out;
   display: block;
@@ -625,13 +556,13 @@ textarea {
     color: gray; }
   textarea:hover {
     border-color: #e6e6e6;
-    color: #01052d;
+    color: #fff;
     background-color: #e6e6e6; }
     textarea:hover::placeholder {
       color: gray; }
   textarea:focus, textarea:hover:focus {
-    border-color: #b89d72;
-    color: #b89d72;
+    border-color: #ffee52;
+    color: #ffee52;
     background-color: #e6e6e6; }
     textarea:focus::placeholder, textarea:hover:focus::placeholder {
       color: gray; }
@@ -652,26 +583,6 @@ select {
   background-position: right 0.625rem center;
   background-size: 0.46875rem;
   cursor: pointer; }
-
-/* Accessibilité des skip-links */
-/* ==skip links                  */
-/* see https://www.alsacreations.com/article/lire/572-Les-liens-d-evitement.html */
-/* styling skip links */
-.skip-links {
-  position: absolute;
-  list-style-type: none; }
-  .skip-links a {
-    clip: rect(1px, 1px, 1px, 1px);
-    position: absolute;
-    overflow: hidden;
-    padding: 0.5em;
-    text-decoration: none;
-    color: white;
-    background: black; }
-    .skip-links a:focus {
-      clip: auto;
-      position: static;
-      overflow: visible; }
 
 /* ====================
    Project Styles
@@ -877,7 +788,7 @@ a img.aligncenter {
       .pagination li span.current,
       .pagination li span:hover,
       .pagination li span:focus {
-        color: #b89d72; }
+        color: #ffee52; }
       .pagination li a.current,
       .pagination li span.current {
         cursor: default; }
@@ -1053,17 +964,17 @@ a img.aligncenter {
   #navigation .menu-item button {
     position: relative;
     font-weight: 700;
-    color: #01052d; }
+    color: #fff; }
     #navigation .menu-item a:hover, #navigation .menu-item a:focus,
     #navigation .menu-item button:hover,
     #navigation .menu-item button:focus {
-      color: #b89d72; }
+      color: #ffee52; }
   #navigation .menu-item.current-menu-item > a,
   #navigation .menu-item.current-menu-item button, #navigation .menu-item.current-menu-ancestor > a,
   #navigation .menu-item.current-menu-ancestor button, #navigation .menu-item.menu-item-has-children:hover > a,
   #navigation .menu-item.menu-item-has-children:hover button, #navigation .menu-item.menu-item-has-children:focus > a,
   #navigation .menu-item.menu-item-has-children:focus button {
-    color: #b89d72; }
+    color: #ffee52; }
   #navigation .sub-menu {
     position: absolute;
     top: calc(100% + 1.25rem);
@@ -1108,11 +1019,11 @@ a img.aligncenter {
     font-weight: 400;
     transition: color 0.2s ease-out, background 0.2s ease-out; }
     #navigation .sub-menu a:hover {
-      color: #b89d72; }
+      color: #ffee52; }
   #navigation .sub-menu li:hover, #navigation .sub-menu li.current-menu-item {
     background: #f7f7fc; }
     #navigation .sub-menu li:hover a, #navigation .sub-menu li.current-menu-item a {
-      color: #b89d72; }
+      color: #ffee52; }
   #navigation .sub-menu .sub-menu {
     position: static;
     padding: 0 0 0.625rem 0;
@@ -1123,7 +1034,7 @@ a img.aligncenter {
     #navigation .sub-menu .sub-menu a {
       padding: 0.625rem 0 0.625rem 1.875rem; }
       #navigation .sub-menu .sub-menu a:hover {
-        color: #b89d72; }
+        color: #ffee52; }
 
 /* Cover Modals ------------------------------ */
 .cover-modal {
@@ -1247,7 +1158,7 @@ button.close-nav-toggle .toggle-text {
   width: 100%;
   padding: 1.25rem 1.5625rem;
   text-decoration: none;
-  color: #01052d; }
+  color: #fff; }
 
 .modal-menu a:focus,
 .modal-menu a:hover,
@@ -1439,6 +1350,81 @@ button.sub-menu-toggle.active svg {
     @media (max-width: 48rem) {
       .header #navigation {
         display: none; } }
+
+.map {
+  width: 100vw;
+  height: 100vh; }
+
+/* Popup style */
+.leaflet-popup {
+  width: 275px;
+  cursor: pointer; }
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  box-shadow: none;
+  background: #000; }
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0; }
+
+.leaflet-popup-tip {
+  width: 41px;
+  height: 41px;
+  margin: -29px auto 0; }
+
+.leaflet-popup-content {
+  margin: 10px; }
+
+/* Inner Style popup */
+.custom-popup h2 {
+  text-transform: uppercase;
+  color: #ffee52; }
+
+.custom-popup p {
+  margin: 0 0 10px; }
+
+.custom-popup__img {
+  position: relative;
+  width: 255px;
+  height: 128px;
+  aspect-ratio: 255 / 128; }
+  .custom-popup__img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .custom-popup__img button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 46px;
+    height: 46px;
+    margin: -23px 0 0 -23px;
+    border-radius: 50%;
+    background: #fff; }
+    .custom-popup__img button::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 23px;
+      height: 23px;
+      margin: -11px 0 0 -9px;
+      background: url("../img/play.svg");
+      content: ''; }
+
+.custom-popup__place {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: #fff; }
+  .custom-popup__place::before {
+    width: 18px;
+    height: 18px;
+    margin-right: 9px;
+    background: url("../img/target-white.svg");
+    content: ''; }
 
 /* ====================
    Modules

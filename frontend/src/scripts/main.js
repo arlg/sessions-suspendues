@@ -27,7 +27,6 @@ import { Map } from "./classes/Map";
 document.addEventListener("DOMContentLoaded", (event) => {
 	// Executer les components
 	component();
-	twentytwenty();
 
 	// Instancier les classes
 	const a = new MyClass();
