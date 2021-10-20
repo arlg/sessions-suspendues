@@ -168,21 +168,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var Leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! Leaflet */ "./node_modules/Leaflet/dist/leaflet-src.js");
 /* harmony import */ var Leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(Leaflet__WEBPACK_IMPORTED_MODULE_0__);
 
+window.markers = window.markers || [];
 
 class Map {
   constructor() {
-    this.dom = {};
+    this.dom = {
+      fullPopup: document.querySelector(".js-full-popup")
+    };
+    /*
+    Ko Ko Mo au marché couvert de Talensac
+    Simo Cell & Abdullah Miniawy à l'usine Beghin-Say
+    Inuït aux Fonderies
+    Terrier à l'école de la Cité Radieuse
+    Zaho de Sagazan au café Le Landru
+    Miët à la chapelle de l'Immaculée
+    Cabadzi au bar Le Floride
+    Clelia Vega dans un manoir abandonné (Rue du Petit Portric – 44240 La Chapelle-sur-Erdre pour la géoloc)
+    Mad Foxes à l'usine Guillouard
+    Soja Triani au musée d'Histoire Naturelle
+    Molto Morbidi au Jardin des Plantes
+    Odor au vélodrome du Petit Breton*/
+
     this.geoJSON = [{
       type: "FeatureCollection",
       features: [{
         type: "Feature",
         geometry: {
           type: "Point",
-          coordinates: [-1.329975099999956, 46.98040429999999]
+          coordinates: [-1.557468, 47.221592]
         },
         properties: {
-          band: "Groupe 1",
-          place: "Ile de Nantes",
+          band: "Ko Ko Mo",
+          place: "Marché couvert de Talensac",
           title: "",
           thumb: "assets/img/1.jpg",
           url: "https://embed.embed.com"
@@ -191,10 +208,23 @@ class Map {
         type: "Feature",
         geometry: {
           type: "Point",
-          coordinates: [-1.6284865999999738, 46.5564467]
+          coordinates: [-1.5532477325779, 47.20044581235221]
         },
         properties: {
-          band: "Groupe 2",
+          band: "Simo Cell & Abdullah Miniawy",
+          place: "Usine Beghin-Say",
+          title: "",
+          thumb: "assets/img/1.jpg",
+          url: null
+        }
+      }, {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [-1.545692, 47.205669]
+        },
+        properties: {
+          band: "Inuït",
           place: "Fonderies",
           title: "",
           thumb: "assets/img/1.jpg",
@@ -210,11 +240,12 @@ class Map {
       opacity: 1,
       fillOpacity: 0.8
     };
+    this.markers = [];
     this.init();
   }
 
   init() {
-    this.map = L.map("map").setView([47.218637, -1.554136], 10);
+    this.map = L.map("map").setView([47.218637, -1.554136], 13);
     this.LMap = L.tileLayer("https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png", {
       attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
       maxZoom: 18 // tileSize: 512,
@@ -229,51 +260,57 @@ class Map {
 
   createMarkers() {
     // L.geoJSON(this.geoJSON).addTo(this.map);
-    L.geoJSON(this.geoJSON, {
-      pointToLayer: (feature, latlng) => {
-        return L.circleMarker(latlng, this.geojsonMarkerOptions);
-      }
-    }).addTo(this.map);
+    // L.geoJSON(this.geoJSON, {
+    // 	pointToLayer: (feature, latlng) => {
+    // 		return L.circleMarker(latlng, this.geojsonMarkerOptions);
+    // 	},
+    // }).addTo(this.map);
     L.geoJSON(this.geoJSON, {
       onEachFeature: this.onEachFeature
     }).addTo(this.map); // this.map.on("click", function (ev) {
     // 	console.log(ev);
     // 	console.log(ev.target);
     // });
+    // EVENTS
+    // document.addEventListener("click", (e) => {
+    // 	const { target } = e;
+    // 	// console.log(target);
+    // 	if (target.closest(".leaflet-popup")) {
+    // 		//   callback(); // If target is an li, run callback
+    // 		// console.log(e);
+    // 		// console.log(L.popup().isOpen());
+    // 		window.markers.forEach((_marker) => {
+    // 			if (_marker.getPopup().isOpen()) {
+    // 				_marker
+    // 					.getPopup()
+    // 					.setContent(
+    // 						"<p>Hello world!<br />This is a nice popup.</p>"
+    // 					);
+    // 			}
+    // 			console.log(_marker.getPopup().isOpen());
+    // 		});
+    // 	}
+    // });
+    // Passer les données de la feature au marker
+    // Au clic, utiliser ces données pour recréer un template
   }
 
   onEachFeature(feature, layer) {
     // does this feature have a property named popupContent?
     var _props = feature.properties;
-    var tpl = "<div class=\"custom-popup\">\n\t\t\t\t<div class=\"custom-popup__img\">\n\t\t\t\t\t<img src=\"".concat(_props.thumb, "\" width=\"255\" height=\"128\" />\n\t\t\t\t\t<button></button>\n\t\t\t\t</div>\n\t\t\t\t<h2>").concat(_props.band, "</h2>\n\t\t\t\t<p class=\"custom-popup__place\">").concat(_props.place, "</p>\n\t\t\t</div>"); //https://stackoverflow.com/questions/13698975/click-link-inside-leaflet-popup-and-do-javascript
-
-    var _bindPopupClickHandler = e => {
-      console.log(e.currentTarget.param); // get popup
-
-      e.currentTarget.param.setContent("<h3>dd</h3>");
-    };
-
-    var _bindPopupClick = function _bindPopupClick(e) {
-      console.log(e);
-
-      if (e.popup) {
-        e.popup._wrapper.param = e.popup; // Passer la popup a l'event
-
-        e.popup._wrapper // .querySelector("button")
-        .addEventListener("click", _bindPopupClickHandler);
-      }
-    };
-
-    var _unbindPopupClick = function _unbindPopupClick(e) {
-      if (e.popup) {
-        e.popup._wrapper // .querySelector("button")
-        .removeEventListener("click", _bindPopupClickHandler);
-      }
-    };
+    var tpl = "\n\t\t\t\t<div class=\"custom-popup__img\">\n\t\t\t\t\t<img src=\"".concat(_props.thumb, "\" width=\"255\" height=\"128\" />\n\t\t\t\t\t<button></button>\n\t\t\t\t</div>\n\t\t\t\t<h2>").concat(_props.band, "</h2>\n\t\t\t\t<p class=\"custom-popup__place\">").concat(_props.place, "</p>");
+    var content = L.DomUtil.create("div", "custom-popup");
+    content.innerHTML = tpl;
 
     if (feature.properties) {
-      layer.bindPopup(tpl).on("popupopen", _bindPopupClick); // .on("popupclose", _unbindPopupClick);
-      // Open / Close
+      layer.bindPopup(content); // .on("popupclose", () => {
+      // 	layer.getPopup().setContent(content);
+      // });
+      // console.log(layer.getPopup().getContent());
+
+      L.DomEvent.on(content, "click", function (e) {
+        this.onPopupClick(_props);
+      }); // Open / Close
       // layer.on("mouseover", function (e) {
       // 	this.openPopup();
       // });
@@ -284,7 +321,11 @@ class Map {
     }
   }
 
-  onPopupClick() {}
+  onPopupClick(_props) {
+    this.dom.fullPopup.querySelector("h2").innerHTML = _props.band;
+    this.dom.fullPopup.querySelector("p").innerHTML = _props.place;
+    this.dom.fullPopup.querySelector(".full-popup__embed").innerHTML = _props.url;
+  }
 
   offPopupClick() {}
 

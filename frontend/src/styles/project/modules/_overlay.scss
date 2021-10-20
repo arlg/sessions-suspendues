@@ -1,0 +1,12 @@
+.overlay {
+	@include absolutecover();
+	z-index: 1000;
+	background: rgba(33, 33, 33, 0.32);
+	opacity: 0;
+	transition: opacity 0.4s $custom-ease-out;
+	pointer-events: none;
+	&.is-active {
+		opacity: 1;
+		pointer-events: all;
+	}
+}

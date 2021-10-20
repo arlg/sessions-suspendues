@@ -4,3 +4,23 @@
 	- Utiliser que les formats .woff et .woff2
 	- Ajouter la propriété font-display: swap;
 ========== */
+
+@font-face {
+	font-family: 'FranceTV Brown';
+	font-style: normal;
+	font-weight: 900;
+	src:
+		url('../fonts/subset-FranceTVBrown-Black.woff2') format('woff2'),
+		url('../fonts/subset-FranceTVBrown-Black.woff') format('woff');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'FranceTV Brown';
+	font-style: normal;
+	font-weight: normal;
+	src:
+		url('../fonts/subset-FranceTVBrown-Regular.woff2') format('woff2'),
+		url('../fonts/subset-FranceTVBrown-Regular.woff') format('woff');
+	font-display: swap;
+}

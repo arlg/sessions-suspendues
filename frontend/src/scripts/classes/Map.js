@@ -1,8 +1,26 @@
 import Leaflet from "Leaflet";
 
+window.markers = window.markers || [];
+
 class Map {
 	constructor() {
-		this.dom = {};
+		this.dom = {
+			fullPopup: document.querySelector(".js-full-popup"),
+		};
+
+		/*
+		Ko Ko Mo au marché couvert de Talensac
+		Simo Cell & Abdullah Miniawy à l'usine Beghin-Say
+		Inuït aux Fonderies
+		Terrier à l'école de la Cité Radieuse
+		Zaho de Sagazan au café Le Landru
+		Miët à la chapelle de l'Immaculée
+		Cabadzi au bar Le Floride
+		Clelia Vega dans un manoir abandonné (Rue du Petit Portric – 44240 La Chapelle-sur-Erdre pour la géoloc)
+		Mad Foxes à l'usine Guillouard
+		Soja Triani au musée d'Histoire Naturelle
+		Molto Morbidi au Jardin des Plantes
+		Odor au vélodrome du Petit Breton*/
 
 		this.geoJSON = [
 			{
@@ -12,13 +30,11 @@ class Map {
 						type: "Feature",
 						geometry: {
 							type: "Point",
-							coordinates: [
-								-1.329975099999956, 46.98040429999999,
-							],
+							coordinates: [-1.557468, 47.221592],
 						},
 						properties: {
-							band: "Groupe 1",
-							place: "Ile de Nantes",
+							band: "Ko Ko Mo",
+							place: "Marché couvert de Talensac",
 							title: "",
 							thumb: "assets/img/1.jpg",
 							url: "https://embed.embed.com",
@@ -28,10 +44,24 @@ class Map {
 						type: "Feature",
 						geometry: {
 							type: "Point",
-							coordinates: [-1.6284865999999738, 46.5564467],
+							coordinates: [-1.5532477325779, 47.20044581235221],
 						},
 						properties: {
-							band: "Groupe 2",
+							band: "Simo Cell & Abdullah Miniawy",
+							place: "Usine Beghin-Say",
+							title: "",
+							thumb: "assets/img/1.jpg",
+							url: null,
+						},
+					},
+					{
+						type: "Feature",
+						geometry: {
+							type: "Point",
+							coordinates: [-1.545692, 47.205669],
+						},
+						properties: {
+							band: "Inuït",
 							place: "Fonderies",
 							title: "",
 							thumb: "assets/img/1.jpg",
@@ -50,12 +80,12 @@ class Map {
 			opacity: 1,
 			fillOpacity: 0.8,
 		};
-
+		this.markers = [];
 		this.init();
 	}
 
 	init() {
-		this.map = L.map("map").setView([47.218637, -1.554136], 10);
+		this.map = L.map("map").setView([47.218637, -1.554136], 13);
 
 		this.LMap = L.tileLayer(
 			"https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
@@ -78,11 +108,11 @@ class Map {
 	createMarkers() {
 		// L.geoJSON(this.geoJSON).addTo(this.map);
 
-		L.geoJSON(this.geoJSON, {
-			pointToLayer: (feature, latlng) => {
-				return L.circleMarker(latlng, this.geojsonMarkerOptions);
-			},
-		}).addTo(this.map);
+		// L.geoJSON(this.geoJSON, {
+		// 	pointToLayer: (feature, latlng) => {
+		// 		return L.circleMarker(latlng, this.geojsonMarkerOptions);
+		// 	},
+		// }).addTo(this.map);
 
 		L.geoJSON(this.geoJSON, {
 			onEachFeature: this.onEachFeature,
@@ -92,6 +122,30 @@ class Map {
 		// 	console.log(ev);
 		// 	console.log(ev.target);
 		// });
+
+		// EVENTS
+		// document.addEventListener("click", (e) => {
+		// 	const { target } = e;
+		// 	// console.log(target);
+		// 	if (target.closest(".leaflet-popup")) {
+		// 		//   callback(); // If target is an li, run callback
+		// 		// console.log(e);
+		// 		// console.log(L.popup().isOpen());
+		// 		window.markers.forEach((_marker) => {
+		// 			if (_marker.getPopup().isOpen()) {
+		// 				_marker
+		// 					.getPopup()
+		// 					.setContent(
+		// 						"<p>Hello world!<br />This is a nice popup.</p>"
+		// 					);
+		// 			}
+		// 			console.log(_marker.getPopup().isOpen());
+		// 		});
+		// 	}
+		// });
+
+		// Passer les données de la feature au marker
+		// Au clic, utiliser ces données pour recréer un template
 	}
 
 	onEachFeature(feature, layer) {
@@ -99,41 +153,28 @@ class Map {
 
 		const _props = feature.properties;
 
-		const tpl = `<div class="custom-popup">
+		const tpl = `
 				<div class="custom-popup__img">
 					<img src="${_props.thumb}" width="255" height="128" />
 					<button></button>
 				</div>
 				<h2>${_props.band}</h2>
-				<p class="custom-popup__place">${_props.place}</p>
-			</div>`;
+				<p class="custom-popup__place">${_props.place}</p>`;
 
-		//https://stackoverflow.com/questions/13698975/click-link-inside-leaflet-popup-and-do-javascript
-		var _bindPopupClickHandler = (e) => {
-			console.log(e.currentTarget.param); // get popup
-			e.currentTarget.param.setContent("<h3>dd</h3>");
-		};
-
-		var _bindPopupClick = function (e) {
-			console.log(e);
-			if (e.popup) {
-				e.popup._wrapper.param = e.popup; // Passer la popup a l'event
-				e.popup._wrapper
-					// .querySelector("button")
-					.addEventListener("click", _bindPopupClickHandler);
-			}
-		};
-		var _unbindPopupClick = function (e) {
-			if (e.popup) {
-				e.popup._wrapper
-					// .querySelector("button")
-					.removeEventListener("click", _bindPopupClickHandler);
-			}
-		};
+		const content = L.DomUtil.create("div", "custom-popup");
+		content.innerHTML = tpl;
 
 		if (feature.properties) {
-			layer.bindPopup(tpl).on("popupopen", _bindPopupClick);
-			// .on("popupclose", _unbindPopupClick);
+			layer.bindPopup(content);
+			// .on("popupclose", () => {
+			// 	layer.getPopup().setContent(content);
+			// });
+
+			// console.log(layer.getPopup().getContent());
+
+			L.DomEvent.on(content, "click", function (e) {
+				this.onPopupClick(_props);
+			});
 
 			// Open / Close
 			// layer.on("mouseover", function (e) {
@@ -147,7 +188,12 @@ class Map {
 		}
 	}
 
-	onPopupClick() {}
+	onPopupClick(_props) {
+		this.dom.fullPopup.querySelector("h2").innerHTML = _props.band;
+		this.dom.fullPopup.querySelector("p").innerHTML = _props.place;
+		this.dom.fullPopup.querySelector(".full-popup__embed").innerHTML =
+			_props.url;
+	}
 
 	offPopupClick() {}
 }

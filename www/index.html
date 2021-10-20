@@ -24,11 +24,51 @@
 
 <body>
 
-	<div class="map" id="map">
+	<header class="header">
+
+		<div class="container">
+			<div class="header__row">
+				<div class="header__logo">
+					<h1>
+						<span><span>Les</span> Sessions</span>
+						<span>Suspendues</span>
+					</h1>
+				</div>
+				<nav>
+					<ul class="list-unstyled">
+						<li>
+							<a href="#" class="is-active">Les Sessions</a>
+						</li>
+						<li>
+							<a href="#">À Propos</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+	</header>
+
+	<div class="map" id="map"></div>
 
 
+	<div class="full-popup">
+		<div class="full-popup__header">
+			<h2>${_props.band}</h2>
+			<p>${_props.place}</p>
+		</div>
 
+		<div class="full-popup__embed">
+			<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8"
+				title="YouTube video player" frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen></iframe>
+		</div>
+
+		<button class="js-full-popup-close full-popup__close"></button>
 	</div>
+
+	<div class="overlay"></div>
 
 	<!-- https://philipwalton.com/articles/deploying-es2015-code-in-production-today/#is-this-really-worth-the-extra-effort%3F -->
 	<!-- Vendors -->

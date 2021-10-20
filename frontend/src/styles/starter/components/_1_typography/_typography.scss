@@ -3,8 +3,8 @@
    ==================== */
 
 /* font families */
-$font-family-primary: "Arial", sans-serif;
-$font-family-secondary: Georgia, "Times New Roman", Times, serif;
+$font-family-primary: 'FranceTV Brown', "Arial", sans-serif;
+// $font-family-secondary: Georgia, "Times New Roman", Times, serif;
 $base-font-family: $font-family-primary;
 
 /* base unitless line heights */
@@ -12,12 +12,12 @@ $base-line-height: 1.4;
 $heading-line-height: 1.2;
 
 /* font sizes */
-$font-size-1: rem(40px);
-$font-size-2: rem(30px);
-$font-size-3: rem(24px);
-$font-size-4: rem(2px);
-$font-size-5: rem(18px);
-$font-size-6: rem(10);
+$font-size-1: 4rem;
+$font-size-2: 3.6rem;
+$font-size-3: 2.4rem;
+$font-size-4: 2rem;
+$font-size-5: 1.8rem;
+$font-size-6: 1rem;
 $font-size-base: $font-size-5;
 
 /* font weights */
@@ -40,8 +40,8 @@ $list-margin-left: 2rem;
 $unordered-list-style: disc;
 
 /* margins */
-$heading-margin-bottom: rem(10px);
-$paragraph-margin-bottom: rem(10px);
+$heading-margin-bottom: 10px;
+$paragraph-margin-bottom: 10px;
 
 /* ====================
    global font settings
@@ -55,8 +55,8 @@ html {
 	/* base font family */
 	font-family: $base-font-family;
 
-	/* keep browsers font-size settings - 1rem equals 16px */
-	font-size: 100%;
+	/* set base font-size to equiv "10px", which is adapted to rem unit */
+	font-size: 62.5%;
 
 	/* base line height */
 	line-height: $base-line-height;
