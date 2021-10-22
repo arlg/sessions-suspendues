@@ -9,6 +9,7 @@
 	padding: 2rem 4rem;
 	background: #000;
 	transform: translate3d(-50%, -50%, 0);
+	max-height: 90vh;
 
 	&.is-active {
 		display: block;

@@ -1,13 +1,13 @@
 import Leaflet from "Leaflet";
+import { FullPopup } from "./FullPopup";
 
 window.markers = window.markers || [];
 
 class Map {
 	constructor() {
-		this.dom = {
-			fullPopup: document.querySelector(".js-full-popup"),
-		};
+		this.dom = {};
 
+		this.fullPopup = new FullPopup();
 		/*
 		Ko Ko Mo au marché couvert de Talensac
 		Simo Cell & Abdullah Miniawy à l'usine Beghin-Say
@@ -48,6 +48,7 @@ class Map {
 						},
 						properties: {
 							band: "Simo Cell & Abdullah Miniawy",
+							is_long_band: true,
 							place: "Usine Beghin-Say",
 							title: "",
 							thumb: "assets/img/1.jpg",
@@ -158,8 +159,11 @@ class Map {
 					<img src="${_props.thumb}" width="255" height="128" />
 					<button></button>
 				</div>
-				<h2>${_props.band}</h2>
+				<h2 ${_props.is_long_band === true ? "class='--is-long'" : ""} >
+					${_props.band}</h2>
 				<p class="custom-popup__place">${_props.place}</p>`;
+
+		// `${ result['color 5'] ? 'color 5 exists!' : 'color 5 does not exist!' }`
 
 		const content = L.DomUtil.create("div", "custom-popup");
 		content.innerHTML = tpl;
@@ -189,10 +193,7 @@ class Map {
 	}
 
 	onPopupClick(_props) {
-		this.dom.fullPopup.querySelector("h2").innerHTML = _props.band;
-		this.dom.fullPopup.querySelector("p").innerHTML = _props.place;
-		this.dom.fullPopup.querySelector(".full-popup__embed").innerHTML =
-			_props.url;
+		this.fullPopup.changeContent(_props);
 	}
 
 	offPopupClick() {}

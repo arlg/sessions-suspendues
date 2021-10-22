@@ -32,6 +32,7 @@ Common / Site Globals and hiq resets
 @import "components/footer.scss";
 @import "components/map.scss";
 @import "components/full-popup.scss";
+@import "components/intro.scss";
 
 /* ====================
    Modules
@@ -39,8 +40,3 @@ Common / Site Globals and hiq resets
 @import "modules/menu.scss";
 @import "modules/buttons.scss";
 @import "modules/overlay.scss";
-
-/* ====================
-   Helpers
-   ==================== */
-// @import "grille-integration.scss";

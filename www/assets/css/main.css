@@ -831,7 +831,8 @@ Controls
   max-width: 1440px;
   padding: 2rem 4rem;
   background: #000;
-  transform: translate3d(-50%, -50%, 0); }
+  transform: translate3d(-50%, -50%, 0);
+  max-height: 90vh; }
   .full-popup.is-active {
     display: block; }
   .full-popup__header {
@@ -869,6 +870,51 @@ Controls
     height: 26px;
     background: url("../img/close.svg"); }
 
+.intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1001;
+  transform: translate3d(-50%, -50%, 0);
+  pointer-events: none;
+  cursor: default; }
+  .intro__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #ffee52;
+    margin-bottom: 0;
+    line-height: 0.8;
+    margin-top: -27px;
+    opacity: 0; }
+    .intro__content > span {
+      display: block;
+      font-size: 12rem; }
+    .intro__content span span {
+      font-size: 6.5rem; }
+  .intro__background {
+    background: url("../img/brush.png");
+    width: 100%;
+    height: 387px;
+    opacity: 0;
+    aspect-ratio: 1097 / 387;
+    max-width: 1097px; }
+  .intro.is-active {
+    display: block;
+    pointer-events: all; }
+  .intro.is-active .intro__content {
+    opacity: 1;
+    transition: opacity 0.4s cubic-bezier(0.44, 0.21, 0, 1) 0.2s; }
+  .intro.is-active .intro__background {
+    opacity: 1;
+    transition: opacity 0.4s cubic-bezier(0.44, 0.21, 0, 1); }
+
 /* ====================
    Modules
    ==================== */
@@ -894,9 +940,5 @@ Controls
   .overlay.is-active {
     opacity: 1;
     pointer-events: all; }
-
-/* ====================
-   Helpers
-   ==================== */
 
 /*# sourceMappingURL=main.css.map */

@@ -155,6 +155,91 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/scripts/classes/FullPopup.js":
+/*!******************************************!*\
+  !*** ./src/scripts/classes/FullPopup.js ***!
+  \******************************************/
+/*! exports provided: FullPopup */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FullPopup", function() { return FullPopup; });
+class FullPopup {
+  constructor() {
+    this.dom = {
+      fullPopup: document.querySelector(".js-full-popup")
+    };
+    this.init();
+  }
+
+  init() {
+    this.initEvents();
+  }
+
+  initEvents() {}
+
+  changeContent(_props) {
+    this.dom.fullPopup.querySelector("h2").innerHTML = _props.band;
+    this.dom.fullPopup.querySelector("p").innerHTML = _props.place;
+    this.dom.fullPopup.querySelector(".full-popup__embed").innerHTML = _props.url;
+  }
+
+  open() {}
+
+  close() {}
+
+}
+
+
+
+/***/ }),
+
+/***/ "./src/scripts/classes/Intro.js":
+/*!**************************************!*\
+  !*** ./src/scripts/classes/Intro.js ***!
+  \**************************************/
+/*! exports provided: Intro */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Intro", function() { return Intro; });
+class Intro {
+  constructor() {
+    this.dom = {
+      intro: document.querySelector(".intro"),
+      overlay: document.querySelector(".overlay")
+    };
+    if (!this.dom.intro) return;
+    this.init();
+  }
+
+  init() {
+    console.log(document.cookie); // document.cookie = "intro_seen=true";
+
+    this.dom.intro.classList.add("is-active");
+    this.dom.overlay.classList.add("is-active");
+    this.initEvents();
+  }
+
+  initEvents() {
+    document.querySelector("body").addEventListener("click", () => {
+      this.onClose();
+    });
+  }
+
+  onClose() {
+    this.dom.intro.classList.remove("is-active");
+    this.dom.overlay.classList.remove("is-active");
+  }
+
+}
+
+
+
+/***/ }),
+
 /***/ "./src/scripts/classes/Map.js":
 /*!************************************!*\
   !*** ./src/scripts/classes/Map.js ***!
@@ -167,14 +252,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Map", function() { return Map; });
 /* harmony import */ var Leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! Leaflet */ "./node_modules/Leaflet/dist/leaflet-src.js");
 /* harmony import */ var Leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(Leaflet__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FullPopup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FullPopup */ "./src/scripts/classes/FullPopup.js");
+
 
 window.markers = window.markers || [];
 
 class Map {
   constructor() {
-    this.dom = {
-      fullPopup: document.querySelector(".js-full-popup")
-    };
+    this.dom = {};
+    this.fullPopup = new _FullPopup__WEBPACK_IMPORTED_MODULE_1__["FullPopup"]();
     /*
     Ko Ko Mo au marché couvert de Talensac
     Simo Cell & Abdullah Miniawy à l'usine Beghin-Say
@@ -212,6 +298,7 @@ class Map {
         },
         properties: {
           band: "Simo Cell & Abdullah Miniawy",
+          is_long_band: true,
           place: "Usine Beghin-Say",
           title: "",
           thumb: "assets/img/1.jpg",
@@ -298,7 +385,8 @@ class Map {
   onEachFeature(feature, layer) {
     // does this feature have a property named popupContent?
     var _props = feature.properties;
-    var tpl = "\n\t\t\t\t<div class=\"custom-popup__img\">\n\t\t\t\t\t<img src=\"".concat(_props.thumb, "\" width=\"255\" height=\"128\" />\n\t\t\t\t\t<button></button>\n\t\t\t\t</div>\n\t\t\t\t<h2>").concat(_props.band, "</h2>\n\t\t\t\t<p class=\"custom-popup__place\">").concat(_props.place, "</p>");
+    var tpl = "\n\t\t\t\t<div class=\"custom-popup__img\">\n\t\t\t\t\t<img src=\"".concat(_props.thumb, "\" width=\"255\" height=\"128\" />\n\t\t\t\t\t<button></button>\n\t\t\t\t</div>\n\t\t\t\t<h2 ").concat(_props.is_long_band === true ? "class='--is-long'" : "", " >\n\t\t\t\t\t").concat(_props.band, "</h2>\n\t\t\t\t<p class=\"custom-popup__place\">").concat(_props.place, "</p>"); // `${ result['color 5'] ? 'color 5 exists!' : 'color 5 does not exist!' }`
+
     var content = L.DomUtil.create("div", "custom-popup");
     content.innerHTML = tpl;
 
@@ -322,9 +410,7 @@ class Map {
   }
 
   onPopupClick(_props) {
-    this.dom.fullPopup.querySelector("h2").innerHTML = _props.band;
-    this.dom.fullPopup.querySelector("p").innerHTML = _props.place;
-    this.dom.fullPopup.querySelector(".full-popup__embed").innerHTML = _props.url;
+    this.fullPopup.changeContent(_props);
   }
 
   offPopupClick() {}
@@ -394,6 +480,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/_component */ "./src/scripts/components/_component.js");
 /* harmony import */ var _classes_myClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./classes/_myClass */ "./src/scripts/classes/_myClass.js");
 /* harmony import */ var _classes_Map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./classes/Map */ "./src/scripts/classes/Map.js");
+/* harmony import */ var _classes_Intro__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./classes/Intro */ "./src/scripts/classes/Intro.js");
 /***
 	main.js
 	Entrée principale des scripts
@@ -417,6 +504,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /** DOM ready **/
 
 document.addEventListener("DOMContentLoaded", event => {
@@ -425,6 +513,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
   var a = new _classes_myClass__WEBPACK_IMPORTED_MODULE_1__["MyClass"]();
   var b = new _classes_Map__WEBPACK_IMPORTED_MODULE_2__["Map"]();
+  var c = new _classes_Intro__WEBPACK_IMPORTED_MODULE_3__["Intro"]();
 });
 
 /***/ })

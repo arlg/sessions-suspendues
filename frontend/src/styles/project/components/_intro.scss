@@ -1,0 +1,61 @@
+.intro {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    z-index: 1001;
+    transform : translate3d(-50%, -50%, 0);
+    pointer-events: none;
+    cursor: default;
+
+    &__content {
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform : translate3d(-50%, -50%, 0);
+        display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-transform: uppercase;
+		font-weight: 900;
+		color: $color-primary;
+		margin-bottom: 0;
+		line-height: 0.8;
+        margin-top: -27px;
+        opacity: 0;
+
+        > span {
+            display: block;
+            font-size: 12rem;
+        }
+
+        span span {
+            font-size: 6.5rem;
+        }
+    }
+
+    &__background {
+        background: url('../img/brush.png');
+        width: 100%;height: 387px;
+        opacity: 0;
+        aspect-ratio: 1097 / 387;
+        max-width: 1097px;
+    }
+
+    &.is-active {
+        display: block;
+        pointer-events: all;
+    }
+
+    &.is-active & {
+        &__content {
+            opacity: 1;
+            transition: opacity 0.4s $custom-ease 0.2s;
+        }
+
+        &__background {
+            opacity: 1;
+            transition: opacity 0.4s $custom-ease;
+        }
+    }
+
+}

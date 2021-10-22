@@ -14,11 +14,13 @@
 	<link rel="apple-touch-icon" href="icon.png">
 	<!-- Place favicon.ico in the root directory -->
 
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+	<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-		crossorigin="" />
+		crossorigin="" /> -->
 
+	<!-- <link rel="stylesheet" href="assets/css/leaflet.css"> -->
 	<link rel="stylesheet" href="assets/css/main.css">
+
 	<meta name="theme-color" content="#fafafa">
 </head>
 
@@ -52,20 +54,28 @@
 	<div class="map" id="map"></div>
 
 
-	<div class="full-popup">
+	<div class="full-popup js-full-popup">
 		<div class="full-popup__header">
 			<h2>${_props.band}</h2>
 			<p>${_props.place}</p>
 		</div>
 
 		<div class="full-popup__embed">
-			<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8"
+			<!-- <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8"
 				title="YouTube video player" frameborder="0"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen></iframe>
+				allowfullscreen></iframe> -->
 		</div>
 
 		<button class="js-full-popup-close full-popup__close"></button>
+	</div>
+
+	<div class="intro">
+		<div class="intro__background"></div>
+		<div class="intro__content">
+			<span><span>Les</span> Sessions</span>
+			<span>Suspendues</span>
+		</div>
 	</div>
 
 	<div class="overlay"></div>
