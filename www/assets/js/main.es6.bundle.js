@@ -168,7 +168,9 @@ __webpack_require__.r(__webpack_exports__);
 class FullPopup {
   constructor() {
     this.dom = {
-      fullPopup: document.querySelector(".js-full-popup")
+      fullPopup: document.querySelector(".js-full-popup"),
+      close: document.querySelector(".js-full-popup-close"),
+      overlay: document.querySelector(".js-overlay")
     };
     this.init();
   }
@@ -177,17 +179,32 @@ class FullPopup {
     this.initEvents();
   }
 
-  initEvents() {}
+  initEvents() {
+    window.ee.addListener("onFullPopupChange", _props => {
+      this.changeContent(_props);
+    });
+    this.dom.close.addEventListener("click", e => {
+      this.close();
+    });
+  }
 
   changeContent(_props) {
+    console.log(this);
     this.dom.fullPopup.querySelector("h2").innerHTML = _props.band;
     this.dom.fullPopup.querySelector("p").innerHTML = _props.place;
     this.dom.fullPopup.querySelector(".full-popup__embed").innerHTML = _props.url;
+    this.open();
   }
 
-  open() {}
+  open() {
+    this.dom.fullPopup.classList.add("is-active");
+    this.dom.overlay.classList.add("is-active");
+  }
 
-  close() {}
+  close() {
+    this.dom.fullPopup.classList.remove("is-active");
+    this.dom.overlay.classList.remove("is-active");
+  }
 
 }
 
@@ -212,12 +229,13 @@ class Intro {
       overlay: document.querySelector(".overlay")
     };
     if (!this.dom.intro) return;
-    this.init();
+    console.log(document.cookie);
+    console.log(this.getCookieValue("intro_seen"));
+    var cookies = document.cookie;
+    if (this.getCookieValue("intro_seen") === "") this.init();
   }
 
   init() {
-    console.log(document.cookie); // document.cookie = "intro_seen=true";
-
     this.dom.intro.classList.add("is-active");
     this.dom.overlay.classList.add("is-active");
     this.initEvents();
@@ -232,6 +250,15 @@ class Intro {
   onClose() {
     this.dom.intro.classList.remove("is-active");
     this.dom.overlay.classList.remove("is-active");
+    document.cookie = "intro_seen=true";
+  } // Get cookie by value
+  // https://stackoverflow.com/questions/5639346/what-is-the-shortest-function-for-reading-a-cookie-by-name-in-javascript
+
+
+  getCookieValue(name) {
+    var _document$cookie$matc;
+
+    return ((_document$cookie$matc = document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)")) === null || _document$cookie$matc === void 0 ? void 0 : _document$cookie$matc.pop()) || "";
   }
 
 }
@@ -253,9 +280,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var Leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! Leaflet */ "./node_modules/Leaflet/dist/leaflet-src.js");
 /* harmony import */ var Leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(Leaflet__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _FullPopup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FullPopup */ "./src/scripts/classes/FullPopup.js");
+/* harmony import */ var wolfy87_eventemitter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! wolfy87-eventemitter */ "./node_modules/wolfy87-eventemitter/EventEmitter.js");
+/* harmony import */ var wolfy87_eventemitter__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(wolfy87_eventemitter__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 window.markers = window.markers || [];
+window.ee = new wolfy87_eventemitter__WEBPACK_IMPORTED_MODULE_2___default.a();
 
 class Map {
   constructor() {
@@ -275,63 +306,13 @@ class Map {
     Molto Morbidi au Jardin des Plantes
     Odor au vélodrome du Petit Breton*/
 
-    this.geoJSON = [{
-      type: "FeatureCollection",
-      features: [{
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [-1.557468, 47.221592]
-        },
-        properties: {
-          band: "Ko Ko Mo",
-          place: "Marché couvert de Talensac",
-          title: "",
-          thumb: "assets/img/1.jpg",
-          url: "https://embed.embed.com"
-        }
-      }, {
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [-1.5532477325779, 47.20044581235221]
-        },
-        properties: {
-          band: "Simo Cell & Abdullah Miniawy",
-          is_long_band: true,
-          place: "Usine Beghin-Say",
-          title: "",
-          thumb: "assets/img/1.jpg",
-          url: null
-        }
-      }, {
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [-1.545692, 47.205669]
-        },
-        properties: {
-          band: "Inuït",
-          place: "Fonderies",
-          title: "",
-          thumb: "assets/img/1.jpg",
-          url: null
-        }
-      }]
-    }];
-    this.geojsonMarkerOptions = {
-      radius: 8,
-      fillColor: "#ff7800",
-      color: "#000",
-      weight: 1,
-      opacity: 1,
-      fillOpacity: 0.8
-    };
+    this.geoJSON = [];
     this.markers = [];
     this.init();
   }
 
   init() {
+    // Init Map
     this.map = L.map("map").setView([47.218637, -1.554136], 13);
     this.LMap = L.tileLayer("https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png", {
       attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
@@ -339,7 +320,17 @@ class Map {
       // zoomOffset: 1,
 
     }).addTo(this.map);
-    this.createMarkers();
+    fetch("./assets/data/map.json").then(response => {
+      return response.json();
+    }).then(data => {
+      // Work with JSON data here
+      console.log(data);
+      this.geoJSON = data.map;
+      this.createMarkers();
+    }).catch(err => {
+      // Do something for an error here
+      console.log(err);
+    });
     this.initEvents();
   }
 
@@ -352,52 +343,61 @@ class Map {
     // 		return L.circleMarker(latlng, this.geojsonMarkerOptions);
     // 	},
     // }).addTo(this.map);
+    var baseIcon = L.icon({
+      iconUrl: "assets/img/marker.svg",
+      iconSize: [59, 59],
+      iconAnchor: [16, 37],
+      popupAnchor: [0, -28]
+    });
+    var myIcon = L.divIcon({
+      className: "custom-div-icon",
+      iconSize: [40, 40],
+      iconAnchor: [20, 18],
+      html: "<span class='custom-div-icon__outer'><span class='custom-div-icon__inner'></span></span>"
+    });
     L.geoJSON(this.geoJSON, {
-      onEachFeature: this.onEachFeature
-    }).addTo(this.map); // this.map.on("click", function (ev) {
-    // 	console.log(ev);
-    // 	console.log(ev.target);
-    // });
-    // EVENTS
-    // document.addEventListener("click", (e) => {
-    // 	const { target } = e;
-    // 	// console.log(target);
-    // 	if (target.closest(".leaflet-popup")) {
-    // 		//   callback(); // If target is an li, run callback
-    // 		// console.log(e);
-    // 		// console.log(L.popup().isOpen());
-    // 		window.markers.forEach((_marker) => {
-    // 			if (_marker.getPopup().isOpen()) {
-    // 				_marker
-    // 					.getPopup()
-    // 					.setContent(
-    // 						"<p>Hello world!<br />This is a nice popup.</p>"
-    // 					);
-    // 			}
-    // 			console.log(_marker.getPopup().isOpen());
-    // 		});
-    // 	}
-    // });
-    // Passer les données de la feature au marker
-    // Au clic, utiliser ces données pour recréer un template
+      pointToLayer: (feature, latlng) => {
+        return L.marker(latlng, {
+          icon: myIcon
+        });
+      },
+      onEachFeature: (feature, layer) => {
+        this.onEachFeature(feature, layer);
+      }
+    }).addTo(this.map);
+    this.setMapBounds();
   }
 
   onEachFeature(feature, layer) {
-    // does this feature have a property named popupContent?
     var _props = feature.properties;
-    var tpl = "\n\t\t\t\t<div class=\"custom-popup__img\">\n\t\t\t\t\t<img src=\"".concat(_props.thumb, "\" width=\"255\" height=\"128\" />\n\t\t\t\t\t<button></button>\n\t\t\t\t</div>\n\t\t\t\t<h2 ").concat(_props.is_long_band === true ? "class='--is-long'" : "", " >\n\t\t\t\t\t").concat(_props.band, "</h2>\n\t\t\t\t<p class=\"custom-popup__place\">").concat(_props.place, "</p>"); // `${ result['color 5'] ? 'color 5 exists!' : 'color 5 does not exist!' }`
-
+    var tpl = "\n\t\t\t\t<div class=\"custom-popup__img\">\n\t\t\t\t\t<img src=\"".concat(_props.thumb, "\" width=\"255\" height=\"128\" />\n\t\t\t\t\t<button></button>\n\t\t\t\t</div>\n\t\t\t\t<h2 ").concat(_props.is_long_band === true ? "class='--is-long'" : "", " >\n\t\t\t\t\t").concat(_props.band, "</h2>\n\t\t\t\t<p class=\"custom-popup__place\">").concat(_props.place, "</p>");
     var content = L.DomUtil.create("div", "custom-popup");
-    content.innerHTML = tpl;
+    content.innerHTML = tpl; // const activeIcon = L.icon({
+    // 	iconUrl: "assets/img/marker-open.svg",
+    // 	iconSize: [60, 60],
+    // 	iconAnchor: [30, 30],
+    // 	popupAnchor: [0, 0],
+    // });
+    // const baseIcon = L.icon({
+    // 	iconUrl: "assets/img/marker.svg",
+    // 	iconSize: [60, 60],
+    // 	iconAnchor: [30, 30],
+    // 	popupAnchor: [0, 0],
+    // });
 
     if (feature.properties) {
-      layer.bindPopup(content); // .on("popupclose", () => {
-      // 	layer.getPopup().setContent(content);
-      // });
-      // console.log(layer.getPopup().getContent());
+      layer.bindPopup(content);
+      layer.on("popupopen", () => {
+        L.DomUtil.addClass(layer._icon, "is-active");
+      });
+      layer.on("popupclose", () => {
+        L.DomUtil.removeClass(layer._icon, "is-active");
+      });
+      this.markers.push(layer); // console.log(layer.getPopup().getContent());
 
-      L.DomEvent.on(content, "click", function (e) {
-        this.onPopupClick(_props);
+      L.DomEvent.on(content, "click", e => {
+        // this.onPopupClick(_props);
+        window.ee.emitEvent("onFullPopupChange", [_props]);
       }); // Open / Close
       // layer.on("mouseover", function (e) {
       // 	this.openPopup();
@@ -405,15 +405,14 @@ class Map {
       // layer.on("mouseout", function (e) {
       // 	this.closePopup();
       // });
-      //https://gis.stackexchange.com/questions/141548/how-to-update-a-popup-content-from-its-marker
     }
-  }
+  } // Once markers are created, we set map bounds to those markers
 
-  onPopupClick(_props) {
-    this.fullPopup.changeContent(_props);
-  }
 
-  offPopupClick() {}
+  setMapBounds() {
+    var group = new L.featureGroup(this.markers);
+    this.map.fitBounds(group.getBounds().pad(0.5));
+  }
 
 }
 

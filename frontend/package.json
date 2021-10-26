@@ -55,6 +55,7 @@
     "gulp.spritesmith": "^6.12.1",
     "jquery": "^3.6.0",
     "leaflet": "^1.7.1",
-    "natives": "^1.1.6"
+    "natives": "^1.1.6",
+    "wolfy87-eventemitter": "^5.2.9"
   }
 }

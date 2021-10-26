@@ -43,6 +43,10 @@ Controls
 	h2 {
 		text-transform: uppercase;
 		color: $color-primary;
+
+		&.--is-long {
+			font-size: 2.4rem;
+		}
 	}
 
 	p {
@@ -54,6 +58,7 @@ Controls
 		width: 255px;
 		height: 128px;
 		aspect-ratio: 255 / 128;
+		margin-bottom: .5rem;
 		img {
 			@include absolutecover();
 		}

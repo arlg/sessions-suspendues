@@ -1,0 +1,30 @@
+.custom-div-icon {
+    width: 40px;height: 40px;
+
+    span {
+
+    }
+    &__outer {
+        transform: rotate(45deg);
+        width: 40px;height: 40px;background: $color-primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__inner {
+        transform: rotate(-45deg);
+        background: url('../img/target.svg') center/contain no-repeat;
+        width: 30px;height: 30px;
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 0.4s $custom-ease, transform 0.4s $custom-ease;
+    }
+
+    &.is-active & {
+        &__inner {
+            opacity: 0;
+            transform: scale(0);
+        }
+    }
+}

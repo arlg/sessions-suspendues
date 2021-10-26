@@ -7,13 +7,15 @@ class Intro {
 
 		if (!this.dom.intro) return;
 
-		this.init();
+		console.log(document.cookie);
+		console.log(this.getCookieValue("intro_seen"));
+
+		const cookies = document.cookie;
+
+		if (this.getCookieValue("intro_seen") === "") this.init();
 	}
 
 	init() {
-		console.log(document.cookie);
-		// document.cookie = "intro_seen=true";
-
 		this.dom.intro.classList.add("is-active");
 		this.dom.overlay.classList.add("is-active");
 
@@ -29,6 +31,18 @@ class Intro {
 	onClose() {
 		this.dom.intro.classList.remove("is-active");
 		this.dom.overlay.classList.remove("is-active");
+
+		document.cookie = "intro_seen=true";
+	}
+
+	// Get cookie by value
+	// https://stackoverflow.com/questions/5639346/what-is-the-shortest-function-for-reading-a-cookie-by-name-in-javascript
+	getCookieValue(name) {
+		return (
+			document.cookie
+				.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)")
+				?.pop() || ""
+		);
 	}
 }
 

@@ -1,7 +1,9 @@
 import Leaflet from "Leaflet";
 import { FullPopup } from "./FullPopup";
+import EventEmitter from "wolfy87-eventemitter";
 
 window.markers = window.markers || [];
+window.ee = new EventEmitter();
 
 class Map {
 	constructor() {
@@ -22,70 +24,13 @@ class Map {
 		Molto Morbidi au Jardin des Plantes
 		Odor au vélodrome du Petit Breton*/
 
-		this.geoJSON = [
-			{
-				type: "FeatureCollection",
-				features: [
-					{
-						type: "Feature",
-						geometry: {
-							type: "Point",
-							coordinates: [-1.557468, 47.221592],
-						},
-						properties: {
-							band: "Ko Ko Mo",
-							place: "Marché couvert de Talensac",
-							title: "",
-							thumb: "assets/img/1.jpg",
-							url: "https://embed.embed.com",
-						},
-					},
-					{
-						type: "Feature",
-						geometry: {
-							type: "Point",
-							coordinates: [-1.5532477325779, 47.20044581235221],
-						},
-						properties: {
-							band: "Simo Cell & Abdullah Miniawy",
-							is_long_band: true,
-							place: "Usine Beghin-Say",
-							title: "",
-							thumb: "assets/img/1.jpg",
-							url: null,
-						},
-					},
-					{
-						type: "Feature",
-						geometry: {
-							type: "Point",
-							coordinates: [-1.545692, 47.205669],
-						},
-						properties: {
-							band: "Inuït",
-							place: "Fonderies",
-							title: "",
-							thumb: "assets/img/1.jpg",
-							url: null,
-						},
-					},
-				],
-			},
-		];
-
-		this.geojsonMarkerOptions = {
-			radius: 8,
-			fillColor: "#ff7800",
-			color: "#000",
-			weight: 1,
-			opacity: 1,
-			fillOpacity: 0.8,
-		};
+		this.geoJSON = [];
 		this.markers = [];
 		this.init();
 	}
 
 	init() {
+		// Init Map
 		this.map = L.map("map").setView([47.218637, -1.554136], 13);
 
 		this.LMap = L.tileLayer(
@@ -99,7 +44,20 @@ class Map {
 			}
 		).addTo(this.map);
 
-		this.createMarkers();
+		fetch("./assets/data/map.json")
+			.then((response) => {
+				return response.json();
+			})
+			.then((data) => {
+				// Work with JSON data here
+				console.log(data);
+				this.geoJSON = data.map;
+				this.createMarkers();
+			})
+			.catch((err) => {
+				// Do something for an error here
+				console.log(err);
+			});
 
 		this.initEvents();
 	}
@@ -115,43 +73,33 @@ class Map {
 		// 	},
 		// }).addTo(this.map);
 
+		var baseIcon = L.icon({
+			iconUrl: "assets/img/marker.svg",
+			iconSize: [59, 59],
+			iconAnchor: [16, 37],
+			popupAnchor: [0, -28],
+		});
+
+		var myIcon = L.divIcon({
+			className: "custom-div-icon",
+			iconSize: [40, 40],
+			iconAnchor: [20, 18],
+			html: "<span class='custom-div-icon__outer'><span class='custom-div-icon__inner'></span></span>",
+		});
+
 		L.geoJSON(this.geoJSON, {
-			onEachFeature: this.onEachFeature,
+			pointToLayer: (feature, latlng) => {
+				return L.marker(latlng, { icon: myIcon });
+			},
+			onEachFeature: (feature, layer) => {
+				this.onEachFeature(feature, layer);
+			},
 		}).addTo(this.map);
 
-		// this.map.on("click", function (ev) {
-		// 	console.log(ev);
-		// 	console.log(ev.target);
-		// });
-
-		// EVENTS
-		// document.addEventListener("click", (e) => {
-		// 	const { target } = e;
-		// 	// console.log(target);
-		// 	if (target.closest(".leaflet-popup")) {
-		// 		//   callback(); // If target is an li, run callback
-		// 		// console.log(e);
-		// 		// console.log(L.popup().isOpen());
-		// 		window.markers.forEach((_marker) => {
-		// 			if (_marker.getPopup().isOpen()) {
-		// 				_marker
-		// 					.getPopup()
-		// 					.setContent(
-		// 						"<p>Hello world!<br />This is a nice popup.</p>"
-		// 					);
-		// 			}
-		// 			console.log(_marker.getPopup().isOpen());
-		// 		});
-		// 	}
-		// });
-
-		// Passer les données de la feature au marker
-		// Au clic, utiliser ces données pour recréer un template
+		this.setMapBounds();
 	}
 
 	onEachFeature(feature, layer) {
-		// does this feature have a property named popupContent?
-
 		const _props = feature.properties;
 
 		const tpl = `
@@ -163,21 +111,41 @@ class Map {
 					${_props.band}</h2>
 				<p class="custom-popup__place">${_props.place}</p>`;
 
-		// `${ result['color 5'] ? 'color 5 exists!' : 'color 5 does not exist!' }`
-
 		const content = L.DomUtil.create("div", "custom-popup");
 		content.innerHTML = tpl;
 
+		// const activeIcon = L.icon({
+		// 	iconUrl: "assets/img/marker-open.svg",
+		// 	iconSize: [60, 60],
+		// 	iconAnchor: [30, 30],
+		// 	popupAnchor: [0, 0],
+		// });
+
+		// const baseIcon = L.icon({
+		// 	iconUrl: "assets/img/marker.svg",
+		// 	iconSize: [60, 60],
+		// 	iconAnchor: [30, 30],
+		// 	popupAnchor: [0, 0],
+		// });
+
 		if (feature.properties) {
 			layer.bindPopup(content);
-			// .on("popupclose", () => {
-			// 	layer.getPopup().setContent(content);
-			// });
+
+			layer.on("popupopen", () => {
+				L.DomUtil.addClass(layer._icon, "is-active");
+			});
+
+			layer.on("popupclose", () => {
+				L.DomUtil.removeClass(layer._icon, "is-active");
+			});
+
+			this.markers.push(layer);
 
 			// console.log(layer.getPopup().getContent());
 
-			L.DomEvent.on(content, "click", function (e) {
-				this.onPopupClick(_props);
+			L.DomEvent.on(content, "click", (e) => {
+				// this.onPopupClick(_props);
+				window.ee.emitEvent("onFullPopupChange", [_props]);
 			});
 
 			// Open / Close
@@ -187,16 +155,14 @@ class Map {
 			// layer.on("mouseout", function (e) {
 			// 	this.closePopup();
 			// });
-
-			//https://gis.stackexchange.com/questions/141548/how-to-update-a-popup-content-from-its-marker
 		}
 	}
 
-	onPopupClick(_props) {
-		this.fullPopup.changeContent(_props);
+	// Once markers are created, we set map bounds to those markers
+	setMapBounds() {
+		const group = new L.featureGroup(this.markers);
+		this.map.fitBounds(group.getBounds().pad(0.5));
 	}
-
-	offPopupClick() {}
 }
 
 export { Map };

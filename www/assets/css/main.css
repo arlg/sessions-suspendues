@@ -775,6 +775,8 @@ Controls
 .custom-popup h2 {
   text-transform: uppercase;
   color: #ffee52; }
+  .custom-popup h2.--is-long {
+    font-size: 2.4rem; }
 
 .custom-popup p {
   margin: 0 0 10px; }
@@ -783,7 +785,8 @@ Controls
   position: relative;
   width: 255px;
   height: 128px;
-  aspect-ratio: 255 / 128; }
+  aspect-ratio: 255 / 128;
+  margin-bottom: .5rem; }
   .custom-popup__img img {
     position: absolute;
     top: 0;
@@ -828,6 +831,7 @@ Controls
   left: 50%;
   z-index: 1000;
   width: 95vw;
+  z-index: 1001;
   max-width: 1440px;
   padding: 2rem 4rem;
   background: #000;
@@ -914,6 +918,29 @@ Controls
   .intro.is-active .intro__background {
     opacity: 1;
     transition: opacity 0.4s cubic-bezier(0.44, 0.21, 0, 1); }
+
+.custom-div-icon {
+  width: 40px;
+  height: 40px; }
+  .custom-div-icon__outer {
+    transform: rotate(45deg);
+    width: 40px;
+    height: 40px;
+    background: #ffee52;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .custom-div-icon__inner {
+    transform: rotate(-45deg);
+    background: url("../img/target.svg") center/contain no-repeat;
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s cubic-bezier(0.44, 0.21, 0, 1), transform 0.4s cubic-bezier(0.44, 0.21, 0, 1); }
+  .custom-div-icon.is-active .custom-div-icon__inner {
+    opacity: 0;
+    transform: scale(0); }
 
 /* ====================
    Modules
