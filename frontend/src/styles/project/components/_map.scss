@@ -3,6 +3,10 @@
 	height: 100vh;
 }
 
+.leaflet-container {
+	font-family: $base-font-family;;
+}
+
 /* Popup style */
 .leaflet-popup {
 	width: 275px;
@@ -51,6 +55,8 @@ Controls
 
 	p {
 		margin: 0 0 10px;
+		font-weight: 900;
+		font-size: 1.2rem;
 	}
 
 	&__img {

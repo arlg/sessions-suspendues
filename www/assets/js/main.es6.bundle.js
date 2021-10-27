@@ -229,8 +229,6 @@ class Intro {
       overlay: document.querySelector(".overlay")
     };
     if (!this.dom.intro) return;
-    console.log(document.cookie);
-    console.log(this.getCookieValue("intro_seen"));
     var cookies = document.cookie;
     if (this.getCookieValue("intro_seen") === "") this.init();
   }
@@ -248,7 +246,7 @@ class Intro {
   }
 
   onClose() {
-    this.dom.intro.classList.remove("is-active");
+    this.dom.intro.classList.add("is-anim-out");
     this.dom.overlay.classList.remove("is-active");
     document.cookie = "intro_seen=true";
   } // Get cookie by value

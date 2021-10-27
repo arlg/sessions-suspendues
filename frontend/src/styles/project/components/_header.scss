@@ -94,4 +94,57 @@
 			display: none;
 		}
 	}
+
+	@media(max-width: 540px) {
+		ul {
+			a {
+				font-size: 1.6rem;
+			}
+		}
+
+		.container {
+			height: 100%;
+		}
+
+		&__logo {
+			h1 {
+				line-height: 0.9;
+				> span {
+					font-size: 2rem;
+
+				}
+
+				span span {
+					font-size: 1.3rem;
+				}
+			}
+		}
+	}
+
+	@media(max-width: 400px) {
+
+		ul {
+			a {
+				font-size: 1.4rem;
+				&::after {
+					bottom: -6px;
+					height: 2px;
+				}
+			}
+		}
+
+		&__logo {
+			h1 {
+				line-height: 0.9;
+				> span {
+					font-size: 1.8rem;
+
+				}
+
+				span span {
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
 }

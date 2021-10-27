@@ -17,8 +17,8 @@ $gray-lighter: hsl(0, 0%, 90%); /* Utilisé sur les inputs */
 $gray-lightest: hsl(0, 0%, 98%); /* Utilisé sur les inputs */
 
 /* applied colors */
-$html-background-color: #fff;
-$body-background-color: #fff;
+$html-background-color: #000;
+$body-background-color: #000;
 $selection-color: lighten($color-primary, 85%);
 $disabled-color: $gray-light;
 

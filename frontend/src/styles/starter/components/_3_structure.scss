@@ -3,13 +3,13 @@
      ==================== */
 
 /* container variables */
-$max-container-width: rem(1366px);
-$mobile-padding: rem(40px);
+$max-container-width: 1366px;
+$mobile-padding: 15px;
 
 /* Containers */
-$large-container-width: rem(1024px);
-$medium-container-width: rem(768px);
-$small-container-width: rem(540px);
+$large-container-width: 1024px;
+$medium-container-width: 768px;
+$small-container-width: 540px;
 
 $mobile-menu-width: $medium-container-width;
 
@@ -19,13 +19,13 @@ $mobile-menu-width: $medium-container-width;
 //	}
 
 $break-max-container-width: "max-width: #{$max-container-width}";
-$break-min-container-width: "min-width: #{$max-container-width + rem(1px)}";
+$break-min-container-width: "min-width: #{$max-container-width + 1px}";
 $break-max-mobile-menu: "max-width: #{$mobile-menu-width}";
 
 /* Responsive breakpoints */
-$break-min-sm: "min-width: #{$small-container-width + rem(1px)}";
-$break-min-md: "min-width: #{$medium-container-width + rem(1px)}";
-$break-min-lg: "min-width: #{$large-container-width + rem(1px)}";
+$break-min-sm: "min-width: #{$small-container-width + 1px}";
+$break-min-md: "min-width: #{$medium-container-width + 1px}";
+$break-min-lg: "min-width: #{$large-container-width + 1px}";
 
 $break-max-sm: "max-width: #{$small-container-width}";
 $break-max-md: "max-width: #{$medium-container-width}";
