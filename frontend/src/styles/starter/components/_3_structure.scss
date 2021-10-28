@@ -4,7 +4,7 @@
 
 /* container variables */
 $max-container-width: 1366px;
-$mobile-padding: 15px;
+$mobile-padding: 20px;
 
 /* Containers */
 $large-container-width: 1024px;
@@ -61,6 +61,10 @@ $break-max-lg: "max-width: #{$large-container-width}";
 
 	&--small {
 		max-width: ($small-container-width + 2 * $mobile-padding);
+	}
+
+	&--content {
+		max-width: (1045px + 2 * $mobile-padding);
 	}
 
 	&--paddingless {

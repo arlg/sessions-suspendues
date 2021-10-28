@@ -23,6 +23,7 @@ import { component } from "./components/_component";
 import { MyClass } from "./classes/_myClass";
 import { Map } from "./classes/Map";
 import { Intro } from "./classes/Intro";
+import { Modal } from "./classes/Modal";
 
 /** DOM ready **/
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -33,4 +34,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	const a = new MyClass();
 	const b = new Map();
 	const c = new Intro();
+	const d = new Modal();
 });

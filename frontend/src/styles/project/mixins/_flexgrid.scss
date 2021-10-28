@@ -6,9 +6,9 @@
 */
 @mixin flexgrid(
 	$breaks: (
-		("min-width: #{rem(540px)}", 2, rem(20px)),
-		("min-width: #{rem(720px)}", 3, rem(20px)),
-		("min-width: #{rem(1024px)}", 4, rem(20px))
+		("min-width: #{540px}", 2, 20px),
+		("min-width: #{720px}", 3, 20px),
+		("min-width: #{1024px}", 4, 20px)
 	)
 ) {
 	// A partir du premier media query, on applique la grille (pas de grid avant)

@@ -1,5 +1,6 @@
 .overlay {
 	@include absolutecover();
+	position: fixed;
 	z-index: 1000;
 	background: rgba(33, 33, 33, 0.32);
 	opacity: 0;

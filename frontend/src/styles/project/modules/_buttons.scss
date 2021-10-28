@@ -7,6 +7,23 @@
 **/
 
 .button {
-	&--blue {
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 5rem;
+	height: 4.4rem;
+	background: #fff;
+	color: #000;
+	text-transform: uppercase;
+	font-weight: 900;
+	transition: color 0.4s $custom-ease;
+	&:hover, &:focus {
+		color: $color-primary;
+	}
+
+	&--black {
+		background: #000;
+		color: #fff;
 	}
 }

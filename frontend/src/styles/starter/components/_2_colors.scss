@@ -19,7 +19,7 @@ $gray-lightest: hsl(0, 0%, 98%); /* Utilisé sur les inputs */
 /* applied colors */
 $html-background-color: #000;
 $body-background-color: #000;
-$selection-color: lighten($color-primary, 85%);
+$selection-color: $color-primary;
 $disabled-color: $gray-light;
 
 /* ====================
@@ -56,3 +56,6 @@ a {
 		color: $link-hover-color;
 	}
 }
+
+::selection { background: $selection-color; }
+::-moz-selection { background: $selection-color; }

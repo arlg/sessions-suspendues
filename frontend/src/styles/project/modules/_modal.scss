@@ -1,0 +1,148 @@
+$modal-background: #fff;
+
+.modal {
+	display: flex;
+	position: fixed;
+	top: 50%;
+	right: 0;
+	left: -9999rem;
+	z-index: 1100;
+	width: calc(100% - 4rem);
+	max-width: 1045px;
+	min-height: 400px;
+	height: auto;
+	max-height: calc(100% - 2rem);
+	box-shadow: 0 3px 16px rgba(#222, 0.1);
+	background: $modal-background;
+	opacity: 0;
+	transform: translate3d(-50%, calc(20px - 50%), 0);
+	transition:
+		opacity 0.15s linear,
+		transform 0.15s linear,
+		right 0s 0.15s,
+		left 0s 0.15s;
+    color: #000;
+
+	&__inner {
+		width: 100%;
+		overflow: auto;
+
+		/* let it scroll */
+		margin-top: 4rem;
+		padding: 0 4rem 4rem 4rem;
+		-webkit-overflow-scrolling: scroll;
+        display: flex;
+	}
+
+    &__left {
+        width: 50%;
+        margin-right: 5%;
+        max-width: 500px;
+    }
+
+    &__right {
+        width: 45%;
+        margin-top: 7rem;
+        max-width: 400px;
+        margin-left: auto;
+        img {
+            aspect-ratio: 4/3;
+        }
+    }
+
+    .h2 {
+        text-transform: uppercase;
+        color: $color-primary;
+    }
+
+    &__place {
+        display: flex;
+		align-items: center;
+		margin-bottom: 2rem;
+		text-transform: uppercase;
+		font-weight: 900;
+		&::before {
+			width: 18px;
+			height: 18px;
+			margin-right: 9px;
+			background: url('../img/target-black.svg');
+			content: '';
+		}
+    }
+
+    &__desc{
+        margin-bottom: 2.4rem;
+    }
+
+	&.is-active {
+		right: 50%;
+		left: 50%;
+		opacity: 1;
+		transform: translate3d(-50%, -50%, 0);
+		transition: opacity 0.15s linear, transform 0.15s linear;
+	}
+
+	&__close {
+		// Close can be a font-icon, a svg image, ...
+		position: absolute;
+		cursor: pointer;
+		top: 2rem;
+		right: 2rem;
+		width: 26px;
+		height: 26px;
+		background: url('../img/close-black.svg');
+
+		&:hover,
+		&:focus {
+
+		}
+	}
+
+    @media(max-width: 720px){
+        &__left {
+            width: 75%;
+        }
+        &__right {
+            width: 20%;
+        }
+    }
+
+    @media(max-width: 560px){
+        &__inner {
+            padding: 0 2rem 2rem 2rem;
+        }
+    }
+
+    @media(max-width: 480px){
+		&__inner {
+			margin-top: 2rem;
+		}
+        &__right {
+            display: none;
+        }
+
+        &__left {
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+}
+
+// .modal-overlay {
+// 	position: fixed;
+// 	top: 0;
+// 	right: 9999rem;
+// 	z-index: 1000;
+// 	width: 100%;
+// 	height: 100%;
+// 	background: rgba(#222, 0.3);
+// 	opacity: 0;
+// 	transition: opacity 0.15s linear, right 0s 0.15s, left 0s 0.15s;
+
+// 	&.is-active {
+// 		right: 0;
+// 		left: 0;
+// 		opacity: 1;
+// 		transition: opacity 0.15s linear;
+// 	}
+// }

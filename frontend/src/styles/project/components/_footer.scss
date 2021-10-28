@@ -1,2 +1,19 @@
 .footer {
+    text-align: center;
+    color: #000;
+    padding-bottom: 10rem;
+    &__title {
+
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    &__logo {
+        margin: 0 auto 4rem;
+    }
+
+    &__place {
+        margin: 0 auto 9rem;
+        width: 60px; height: 60px;
+    }
 }

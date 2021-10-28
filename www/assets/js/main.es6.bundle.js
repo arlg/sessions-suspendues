@@ -421,6 +421,83 @@ class Map {
 
 /***/ }),
 
+/***/ "./src/scripts/classes/Modal.js":
+/*!**************************************!*\
+  !*** ./src/scripts/classes/Modal.js ***!
+  \**************************************/
+/*! exports provided: Modal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Modal", function() { return Modal; });
+class Modal {
+  constructor() {
+    this.dom = {
+      trigger: document.querySelectorAll(".js-modal-trigger"),
+      modal: document.querySelectorAll(".js-modal"),
+      close: document.querySelectorAll(".js-modal-close"),
+      overlay: document.querySelector(".js-overlay")
+    };
+    if (!this.dom.trigger.length) return;
+    this.init();
+    this.onCloseEvents();
+  }
+
+  init() {
+    [...this.dom.trigger].forEach(_el => {
+      _el.addEventListener("click", _e => {
+        var index = parseInt(_e.currentTarget.dataset.index);
+        this.onOpen(index);
+      }, false);
+    });
+  }
+
+  onOpen(_index) {
+    this.currentModal = document.querySelector(".js-modal[data-index=\"".concat(_index, "\"]"));
+    this.currentModal.classList.add("is-active");
+    this.dom.overlay.classList.add("is-active");
+  }
+
+  onCloseEvents() {
+    // Close button
+    [...this.dom.close].forEach(_el => {
+      _el.addEventListener("click", _e => {
+        this.onClose();
+      });
+    }); // Close on Overlay click
+
+    this.dom.overlay.addEventListener("click", _e => {
+      this.onClose();
+    }); // Close on Esc Key press
+
+    document.addEventListener("keydown", evt => {
+      evt = evt || window.event;
+      var isEscape = false;
+
+      if ("key" in evt) {
+        isEscape = evt.key === "Escape" || evt.key === "Esc";
+      } else {
+        isEscape = evt.keyCode === 27;
+      }
+
+      if (isEscape) {
+        this.onClose();
+      }
+    });
+  }
+
+  onClose() {
+    this.currentModal.classList.remove("is-active");
+    this.dom.overlay.classList.remove("is-active");
+  }
+
+}
+
+
+
+/***/ }),
+
 /***/ "./src/scripts/classes/_myClass.js":
 /*!*****************************************!*\
   !*** ./src/scripts/classes/_myClass.js ***!
@@ -481,6 +558,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_myClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./classes/_myClass */ "./src/scripts/classes/_myClass.js");
 /* harmony import */ var _classes_Map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./classes/Map */ "./src/scripts/classes/Map.js");
 /* harmony import */ var _classes_Intro__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./classes/Intro */ "./src/scripts/classes/Intro.js");
+/* harmony import */ var _classes_Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./classes/Modal */ "./src/scripts/classes/Modal.js");
 /***
 	main.js
 	Entrée principale des scripts
@@ -505,6 +583,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /** DOM ready **/
 
 document.addEventListener("DOMContentLoaded", event => {
@@ -514,6 +593,7 @@ document.addEventListener("DOMContentLoaded", event => {
   var a = new _classes_myClass__WEBPACK_IMPORTED_MODULE_1__["MyClass"]();
   var b = new _classes_Map__WEBPACK_IMPORTED_MODULE_2__["Map"]();
   var c = new _classes_Intro__WEBPACK_IMPORTED_MODULE_3__["Intro"]();
+  var d = new _classes_Modal__WEBPACK_IMPORTED_MODULE_4__["Modal"]();
 });
 
 /***/ })

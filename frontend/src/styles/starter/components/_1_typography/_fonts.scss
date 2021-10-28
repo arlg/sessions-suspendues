@@ -24,3 +24,14 @@
 		url('../fonts/subset-FranceTVBrown-Regular.woff') format('woff');
 	font-display: swap;
 }
+
+
+@font-face {
+    font-family: 'FranceTV Brown';
+    src: url('../fonts/subset-FranceTVBrown-Bold.woff2') format('woff2'),
+        url('../fonts/subset-FranceTVBrown-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
