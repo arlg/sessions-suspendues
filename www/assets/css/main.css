@@ -622,7 +622,6 @@ button {
 /* ====================
    PLUGINS
    ==================== */
-/** Galerie **/
 /* Classes utilitaires */
 /* ====================
    utility mixins and classes
@@ -667,6 +666,12 @@ button {
    Layout
    ==================== */
 /*  */
+.template-a-propos {
+  background: #FFF;
+  min-height: 100vh; }
+  .template-a-propos .header {
+    position: static; }
+
 /* ====================
    Components
    ==================== */
@@ -695,13 +700,13 @@ button {
     text-transform: uppercase;
     font-weight: 900;
     color: #ffee52; }
-    .header__logo h1 {
+    .header__logo h1, .header__logo .h1 {
       margin-bottom: 0;
       line-height: 0.8; }
-      .header__logo h1 > span {
+      .header__logo h1 > span, .header__logo .h1 > span {
         display: block;
         font-size: 3.6rem; }
-      .header__logo h1 span span {
+      .header__logo h1 span span, .header__logo .h1 span span {
         font-size: 1.9rem; }
   .header nav {
     flex: 1; }
@@ -742,11 +747,11 @@ button {
       font-size: 1.6rem; }
     .header .container {
       height: 100%; }
-    .header__logo h1 {
+    .header__logo > .h1, .header__logo h1 {
       line-height: 0.9; }
-      .header__logo h1 > span {
+      .header__logo > .h1 > span, .header__logo h1 > span {
         font-size: 2rem; }
-      .header__logo h1 span span {
+      .header__logo > .h1 span span, .header__logo h1 span span {
         font-size: 1.3rem; } }
   @media (max-width: 400px) {
     .header ul a {
@@ -754,11 +759,11 @@ button {
       .header ul a::after {
         bottom: -6px;
         height: 2px; }
-    .header__logo h1 {
+    .header__logo > h1, .header__logo .h1 {
       line-height: 0.9; }
-      .header__logo h1 > span {
+      .header__logo > h1 > span, .header__logo .h1 > span {
         font-size: 1.8rem; }
-      .header__logo h1 span span {
+      .header__logo > h1 span span, .header__logo .h1 span span {
         font-size: 1.2rem; } }
 
 .map {

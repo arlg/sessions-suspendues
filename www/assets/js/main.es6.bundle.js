@@ -172,6 +172,7 @@ class FullPopup {
       close: document.querySelector(".js-full-popup-close"),
       overlay: document.querySelector(".js-overlay")
     };
+    if (!this.dom.fullPopup) return;
     this.init();
   }
 
@@ -189,7 +190,6 @@ class FullPopup {
   }
 
   changeContent(_props) {
-    console.log(this);
     this.dom.fullPopup.querySelector("h2").innerHTML = _props.band;
     this.dom.fullPopup.querySelector("p").innerHTML = _props.place;
     this.dom.fullPopup.querySelector(".full-popup__embed").innerHTML = _props.url;
@@ -288,7 +288,10 @@ window.ee = new wolfy87_eventemitter__WEBPACK_IMPORTED_MODULE_2___default.a();
 
 class Map {
   constructor() {
-    this.dom = {};
+    this.dom = {
+      map: document.querySelector("#map")
+    };
+    if (!this.dom.map) return;
     this.fullPopup = new _FullPopup__WEBPACK_IMPORTED_MODULE_1__["FullPopup"]();
     /*
     Ko Ko Mo au marché couvert de Talensac

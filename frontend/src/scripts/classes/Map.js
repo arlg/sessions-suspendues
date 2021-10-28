@@ -7,7 +7,9 @@ window.ee = new EventEmitter();
 
 class Map {
 	constructor() {
-		this.dom = {};
+		this.dom = { map: document.querySelector("#map") };
+
+		if (!this.dom.map) return;
 
 		this.fullPopup = new FullPopup();
 		/*

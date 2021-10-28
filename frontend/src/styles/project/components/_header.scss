@@ -28,7 +28,7 @@
 		text-transform: uppercase;
 		font-weight: 900;
 		color: $color-primary;
-		h1 {
+		h1, .h1 {
 			margin-bottom: 0;
 			line-height: 0.8;
 			> span {
@@ -107,7 +107,7 @@
 		}
 
 		&__logo {
-			h1 {
+			> .h1, h1 {
 				line-height: 0.9;
 				> span {
 					font-size: 2rem;
@@ -134,7 +134,7 @@
 		}
 
 		&__logo {
-			h1 {
+			> h1, .h1 {
 				line-height: 0.9;
 				> span {
 					font-size: 1.8rem;

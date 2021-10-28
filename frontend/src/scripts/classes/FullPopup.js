@@ -6,6 +6,8 @@ class FullPopup {
 			overlay: document.querySelector(".js-overlay"),
 		};
 
+		if (!this.dom.fullPopup) return;
+
 		this.init();
 	}
 
@@ -24,7 +26,6 @@ class FullPopup {
 	}
 
 	changeContent(_props) {
-		console.log(this);
 		this.dom.fullPopup.querySelector("h2").innerHTML = _props.band;
 		this.dom.fullPopup.querySelector("p").innerHTML = _props.place;
 		this.dom.fullPopup.querySelector(".full-popup__embed").innerHTML =

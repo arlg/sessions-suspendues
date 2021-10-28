@@ -341,20 +341,20 @@ function watch() {
 	};
 
 	// Si on est sur Wordpress, on se base sur le VHOST
-	if (SITETYPE === "WORDPRESS") {
-		browserSyncConfig.host = CONFIG.URL;
-		browserSyncConfig.proxy = CONFIG.URL;
-		browserSyncConfig.snippetOptions = {
-			whitelist: ["/wp-admin/admin-ajax.php"],
-			blacklist: ["/wp-admin/**"],
-		};
+	// if (SITETYPE === "WORDPRESS") {
+	browserSyncConfig.host = CONFIG.URL;
+	browserSyncConfig.proxy = CONFIG.URL;
+	browserSyncConfig.snippetOptions = {
+		whitelist: ["/wp-admin/admin-ajax.php"],
+		blacklist: ["/wp-admin/**"],
+	};
 
-		// Si on est sur un site statique, juste besoin de refresh localement le /www
-	} else {
-		browserSyncConfig.server = {
-			baseDir: "../www/",
-		};
-	}
+	// Si on est sur un site statique, juste besoin de refresh localement le /www
+	// } else {
+	// 	browserSyncConfig.server = {
+	// 		baseDir: "../www/",
+	// 	};
+	// }
 
 	if (isHttps) {
 		browserSyncConfig.proxy = "https://" + CONFIG.URL;
