@@ -1,0 +1,165 @@
+{"map" : [
+    {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.557468, 47.221592]
+                },
+                "properties": {
+                    "band": "Ko Ko Mo",
+                    "place": "Marché couvert de Talensac",
+                    "thumb": "assets/img/510x256/Kokomosalle.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.5532477325779, 47.20044581235221]
+                },
+                "properties": {
+                    "band": "Simo Cell & Abdullah Miniawy",
+                    "is_long_band": true,
+                    "place": "Usine Beghin-Say",
+                    "thumb": "assets/img/510x256/AbdullahxSimo.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.545692, 47.205669]
+                },
+                "properties": {
+                    "band": "Inuït",
+                    "place": "Fonderies",
+                    "thumb": "assets/img/510x256/Inuit.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.568288, 47.188931]
+                },
+                "properties": {
+                    "band": "Terrier",
+                    "place": "école de la Cité Radieuse",
+                    "thumb": "assets/img/510x256/Terrier.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.562959, 47.214659]
+                },
+                "properties": {
+                    "band": "Zaho de Sagazan",
+                    "place": "café Le Landru",
+                    "thumb": "assets/img/510x256/Zao.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.546422, 47.218155]
+                },
+                "properties": {
+                    "band": "Miët",
+                    "place": "chapelle de l'Immaculée",
+                    "thumb": "assets/img/510x256/Miet.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.571689, 47.200436]
+                },
+                "properties": {
+                    "band": "Cabadzi",
+                    "place": "bar Le Floride",
+                    "thumb": "assets/img/510x256/Cabadzi.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.571689, 47.5]
+                },
+                "properties": {
+                    "band": "Clelia Vega",
+                    "place": "manoir abandonné",
+                    "thumb": "assets/img/510x256/Clelia.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.545944, 47.203837]
+                },
+                "properties": {
+                    "band": "Mad Foxes",
+                    "place": "manoir abandonné",
+                    "thumb": "assets/img/510x256/Madfoxestel.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.56496, 47.212803]
+                },
+                "properties": {
+                    "band": "Soja Triani",
+                    "place": "musée d'Histoire Naturelle",
+                    "thumb": "assets/img/510x256/SojaTriani.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.542775, 47.219612]
+                },
+                "properties": {
+                    "band": "Molto Morbidi",
+                    "place": "Jardin des Plantes",
+                    "thumb": "assets/img/510x256/MoltoMorbidi.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-1.599754, 47.214311]
+                },
+                "properties": {
+                    "band": "Odor",
+                    "place": "vélodrome du Petit Breton",
+                    "thumb": "assets/img/510x256/Odor.jpg",
+                    "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                }
+            }
+
+        ]
+    }
+]}

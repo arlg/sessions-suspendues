@@ -321,7 +321,7 @@ class Map {
       // zoomOffset: 1,
 
     }).addTo(this.map);
-    fetch("./assets/data/map.json").then(response => {
+    fetch("../data/map.json").then(response => {
       return response.json();
     }).then(data => {
       // Work with JSON data here

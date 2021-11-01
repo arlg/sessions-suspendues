@@ -46,7 +46,7 @@ class Map {
 			}
 		).addTo(this.map);
 
-		fetch("./assets/data/map.json")
+		fetch("../data/map.json")
 			.then((response) => {
 				return response.json();
 			})

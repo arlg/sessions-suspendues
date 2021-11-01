@@ -3,6 +3,8 @@
     top: 50%;
     left: 50%;
     z-index: 1001;
+    max-width: 1097px;
+width: 100%;
     transform : translate3d(-50%, -50%, 0);
     cursor: default;
     pointer-events: none;
@@ -25,24 +27,24 @@
 
         > span {
             display: block;
-            font-size: 12rem;
+            font-size: clamp(3rem, 10vw, 12rem);
         }
 
         span span {
-            font-size: 6.5rem;
+            font-size: clamp(2rem, 7vw, 6.5rem);
         }
     }
 
     &__background {
         opacity: 0;
-        background: url('../img/brush.png');
+        background: url('../img/brush.png') center/contain  no-repeat;
         width: 100%;height: 387px;
         aspect-ratio: 1097 / 387;
         max-width: 1097px;
 
         @media (-webkit-min-device-pixel-ratio: 2),
         (min-resolution: 192dpi) {
-            background: url('../img/brush@2x.png')  center/contain;
+            background: url('../img/brush@2x.png')  center/contain no-repeat;
         }
     }
 

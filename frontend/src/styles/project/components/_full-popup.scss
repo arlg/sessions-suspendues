@@ -4,6 +4,7 @@
 	top: 50%;
 	left: 50%;
 	z-index: 1000;
+	height: 100%; // Ajout
 	width: 95vw;
 	z-index: 1001;
 	max-width: 1440px;
@@ -49,10 +50,10 @@
 	}
 
 	&__embed {
-
+		height: calc(100% - 55px);
 		iframe {
 			width: 100%;
-			aspect-ratio: 16/9;
+			aspect-ratio: 16/9; // Ajout
 			height: 100%;
 		}
 	}
@@ -70,11 +71,11 @@
 		}
 	}
 
-	@media (min-aspect-ratio: 16/9) {
-		&__embed {
-			iframe { max-height: 70vh; aspect-ratio: auto;}
-		}
-	}
+	// @media (min-aspect-ratio: 16/9) {
+	// 	&__embed {
+	// 		iframe { max-height: 70vh; aspect-ratio: auto;}
+	// 	}
+	// }
 
 	@media (max-width: 720px) {
 		h2 {
