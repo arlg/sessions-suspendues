@@ -4,7 +4,7 @@
     left: 50%;
     z-index: 1001;
     max-width: 1097px;
-width: 100%;
+    width: 100%;
     transform : translate3d(-50%, -50%, 0);
     cursor: default;
     pointer-events: none;
@@ -33,6 +33,13 @@ width: 100%;
         span span {
             font-size: clamp(2rem, 7vw, 6.5rem);
         }
+
+        @media(max-width: 560px) {
+            margin-top: -12px;
+        }
+        @media(max-width: 420px) {
+            margin-top: -6px;
+        }
     }
 
     &__background {
@@ -47,6 +54,7 @@ width: 100%;
         (min-resolution: 192dpi) {
             background: url('../img/brush@2x.png')  center/contain no-repeat;
         }
+
     }
 
     &.is-active {

@@ -97,7 +97,7 @@ $DATA = $DATA->data;
 
         <section class="pp__artists">
             <div class="container container--content">
-                <h2 class="h3">Avec la participation de :</h2>
+                <h2 class="h3">Avec la participation de&nbsp;:</h2>
 
                 <ul class="list-unstyled">
                     <?php $i = 0; ?>
