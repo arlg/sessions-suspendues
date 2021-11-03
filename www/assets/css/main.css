@@ -870,6 +870,9 @@ Controls
     background: url("../img/target-white.svg");
     content: ''; }
 
+.leaflet-popup-close-button {
+  display: none; }
+
 .full-popup {
   display: none;
   position: absolute;
@@ -964,7 +967,6 @@ Controls
     opacity: 0;
     background: url("../img/brush.png") center/contain no-repeat;
     width: 100%;
-    height: 387px;
     aspect-ratio: 1097 / 387;
     max-width: 1097px; }
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {

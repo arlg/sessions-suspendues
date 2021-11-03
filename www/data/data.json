@@ -1,100 +1,100 @@
 {
     "data" : [
         {
+            "id": 0,
             "band": "Ko Ko Mo",
             "genre": "Rock Garage - Loire Atlantique",
             "place": "Marché de Talensac",
             "desc" : "L'hydre à deux têtes du heavy rock français est une expérience live unique. Anachronique autant qu'électrique, le chant de Warren Mutton semble directement sorti d'un disque d'Aerosmith. Costumes et cheveux longs s'ajoutent à la stature incontournable d'un rock inflammable.",
-            "img" : "assets/img/800x600/_alt/kokomolive.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/_alt/kokomolive.jpg"
         },
         {
+            "id": 1,
             "band": "Zaho de Sagazan",
             "genre": "Chanson electro/pop - Loire-Atlantique",
             "place": "café Le Landru",
             "desc" : "Projet solo de la claviériste de Fyrs, la chanteuse nantaise attire l'oreille attentive par sa voix grave, sa prestance et ses arrangements électroniques. Surtout, elle fait écho tantôt à des chanteurs francophones comme Jacques Brel ou plus récemment Stromae, tantôt à des influences anglo-saxonnes.",
-            "img" : "assets/img/800x600/Zao.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/Zao.jpg"
         },
         {
+            "id": 2,
             "band": "Mad Foxes",
             "genre": "Punk rock - Loire-Atlantique",
             "place": "usine Guillouard",
             "desc" : "Mad Foxes est un trio de garage, grunge, post-punk originaire de Nantes et formé en 2016. Cette formation qui fait lever les salles rock de France peut aussi se gausser d'avoir participer à l'émission de Jimmy Fallon en mai 2021. Dans le genre coup de pouce de carrière, on a fait pire.",
-            "img" : "assets/img/800x600/Madfoxestel.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/Madfoxestel.jpg"
         },
         {
+            "id": 3,
             "band": "Simo Cell & Abdullah Miniawy",
             "genre": "Bass music - Loire-Atlantique",
             "place": "usine Beghin-Say",
             "desc" : "Après avoir jammé pendant 3 ans, cette rencontre musicale eut lieu autour du grand album \"Kill me or negociate\" pour un projet où les basses lourdes et les kicks de club de Simo Cell font face aux mélodies (c)hantées de l'Egyptien Abdullah Miniawy. La bass music n'a pas de frontières.",
-            "img" : "assets/img/800x600/AbdullahxSimo.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/AbdullahxSimo.jpg"
         },
         {
+            "id": 4,
             "band": "Miët",
             "genre": "Noise rock - Loire-Atlantique",
             "place": "chapelle de l'Immaculée",
             "desc" : "Depuis 2014, Suzy LeVoid fait de la scène et du studio ses deux maisons, avec son one-woman band Miët. Du post-punk et du spoken word taillé pour les caves rock où l'on danse en fermant les yeux. Avec elle, on passe du murmure aux cris en l'espace de quelques microsecondes. Bluffant.",
-            "img" : "assets/img/800x600/Miet.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/Miet.jpg"
         },
         {
+            "id": 5,
             "band": "Soja Triani",
             "genre": "Chanson - Mayenne",
             "place": "musée d'Histoire Naturelle",
             "desc" : "Duo ligérien formé par Tom Beaudouin & Amaury Sauve, Soja Triani mêle textes en français et productions électroniques. En saltimbanque contemproains, ils nous content leurs histoires où le réel frôle et se complaît dans l'imaginaire de notre monde. Et l'on oublie tout rapport au temps.",
-            "img" : "assets/img/800x600/SojaTriani.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/SojaTriani.jpg"
         },
         {
+            "id": 6,
             "band": "Inüit",
             "genre": "Electro pop - Loire-Atlantique",
             "place": "Fonderies",
             "desc" : "Inüit, c'est comme une colonie de vacances, des amis se retrouvent pour chanter les joies, les peines, l'amour et la fête autour d'une musique pop aux refrains accrocheurs. Une pop de grande facture qui prend en maturité, en richesse et en finesse depuis ses débuts, de la part d'un collectif uni.",
-            "img" : "assets/img/800x600/Inuit.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/Inuit.jpg"
         },
         {
+            "id": 7,
             "band": "Cabadzi",
             "genre": "Hip hop - Loire-Atlantique",
             "place": "bar Le Floride",
             "desc" : "Marier hip hop et électro maximaliste n'a jamais été un problème pour Cabadzi qui, en plus de proposer des concerts XXL dans les festivals de France et de Navarre depuis plus de 10 ans, a en plus eu le luxe de bosser sur les texte de Bertrand Blier en 2017. Parcours impeccable, vous dites ?",
-            "img" : "assets/img/800x600/Cabadzi.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/Cabadzi.jpg"
         },
         {
+            "id": 8,
             "band": "Molto Morbidi",
             "genre": "Pop - Sarthe",
             "place": "Jardin des Plantes",
             "desc" : "Molto Morbidi est le projet solo de la chanteuse de Shadow Motel. Amoureuse des arrangements lo-fi et de la pop, elle n'hésite pas à entrer dans des phases plus rock. Un patchwork d'influences bien senties, qui rappelleront à l'aficionado les superbes Beach House et Thee Oh Sees.",
-            "img" : "assets/img/800x600/MoltoMorbidi.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/MoltoMorbidi.jpg"
         },
         {
+            "id": 9,
             "band": "Terrier",
             "genre": "Chanson rock - Vendée",
             "place": "école de la Cité Radieuse",
             "desc" : "C'est à l'automne 2019 que Terrier s'est fait connaître avec un premier titre, Tourniquet. Mixant chanson urbaine, rock, slam, post/punk, ses textes qui claquent racontent la Vendée  et les sous-sols de Montreuil. On est bluffés de son écriture forte et fière, qui tranche autant qu'elle apaise.",
-            "img" : "assets/img/800x600/Terrier.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/Terrier.jpg"
         },
         {
+            "id": 10,
             "band": "Clelia Vega",
             "genre": "Chanson folk - Sarthe",
             "place": "manoir abandonné",
             "desc" : "La musique est une affaire de famille : bercée dès son enfance par un père guitariste au sein des Nuclear Device, la fille a pris la suite du parcours de... En fait, non, pas du tout, son projet de pop/folk, outre le fait d’être magnifique, est aussi singulier que détaché du père. Fin du débat.",
-            "img" : "assets/img/800x600/Clelia.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/Clelia.jpg"
         },
         {
+            "id": 11,
             "band": "Odor",
             "genre": "Hip-hop - Maine et Loire",
             "place": "vélodrome du Petit Breton",
             "desc" : "Jeune rappeur au grand coeur, Odor balaie l'histoire du hip hop dans ses productinos, et se concentre sur un flow tapageur et surchauffé. On danse, on rit, on pleure avec Odor. Et les noms de Vald ou Jeanjass ne devraient pas lui être totalement inconnus, tant certains morceaux semblent leur envoyer des clins d’œil.",
-            "img" : "assets/img/800x600/Odor.jpg",
-            "maplink": "#"
+            "img" : "assets/img/800x600/Odor.jpg"
         }
     ]
 }

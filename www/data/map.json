@@ -9,6 +9,7 @@
                     "coordinates": [-1.557468, 47.221592]
                 },
                 "properties": {
+                    "id": 0,
                     "band": "Ko Ko Mo",
                     "place": "Marché couvert de Talensac",
                     "thumb": "assets/img/510x256/Kokomosalle.jpg",
@@ -22,6 +23,7 @@
                     "coordinates": [-1.5532477325779, 47.20044581235221]
                 },
                 "properties": {
+                    "id": 3,
                     "band": "Simo Cell & Abdullah Miniawy",
                     "is_long_band": true,
                     "place": "Usine Beghin-Say",
@@ -36,7 +38,8 @@
                     "coordinates": [-1.545692, 47.205669]
                 },
                 "properties": {
-                    "band": "Inuït",
+                    "id": 6,
+                    "band": "Inüit",
                     "place": "Fonderies",
                     "thumb": "assets/img/510x256/Inuit.jpg",
                     "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
@@ -49,6 +52,7 @@
                     "coordinates": [-1.568288, 47.188931]
                 },
                 "properties": {
+                    "id": 9,
                     "band": "Terrier",
                     "place": "école de la Cité Radieuse",
                     "thumb": "assets/img/510x256/Terrier.jpg",
@@ -62,6 +66,7 @@
                     "coordinates": [-1.562959, 47.214659]
                 },
                 "properties": {
+                    "id": 1,
                     "band": "Zaho de Sagazan",
                     "place": "café Le Landru",
                     "thumb": "assets/img/510x256/Zao.jpg",
@@ -75,6 +80,7 @@
                     "coordinates": [-1.546422, 47.218155]
                 },
                 "properties": {
+                    "id": 4,
                     "band": "Miët",
                     "place": "chapelle de l'Immaculée",
                     "thumb": "assets/img/510x256/Miet.jpg",
@@ -88,6 +94,7 @@
                     "coordinates": [-1.571689, 47.200436]
                 },
                 "properties": {
+                    "id": 7,
                     "band": "Cabadzi",
                     "place": "bar Le Floride",
                     "thumb": "assets/img/510x256/Cabadzi.jpg",
@@ -98,9 +105,10 @@
                 "type": "Feature",
                 "geometry": {
                     "type": "Point",
-                    "coordinates": [-1.571689, 47.5]
+                    "coordinates": [-1.53468, 47.277947]
                 },
                 "properties": {
+                    "id": 10,
                     "band": "Clelia Vega",
                     "place": "manoir abandonné",
                     "thumb": "assets/img/510x256/Clelia.jpg",
@@ -114,6 +122,7 @@
                     "coordinates": [-1.545944, 47.203837]
                 },
                 "properties": {
+                    "id": 2,
                     "band": "Mad Foxes",
                     "place": "manoir abandonné",
                     "thumb": "assets/img/510x256/Madfoxestel.jpg",
@@ -127,6 +136,7 @@
                     "coordinates": [-1.56496, 47.212803]
                 },
                 "properties": {
+                    "id": 5,
                     "band": "Soja Triani",
                     "place": "musée d'Histoire Naturelle",
                     "thumb": "assets/img/510x256/SojaTriani.jpg",
@@ -140,6 +150,7 @@
                     "coordinates": [-1.542775, 47.219612]
                 },
                 "properties": {
+                    "id": 8,
                     "band": "Molto Morbidi",
                     "place": "Jardin des Plantes",
                     "thumb": "assets/img/510x256/MoltoMorbidi.jpg",
@@ -153,6 +164,7 @@
                     "coordinates": [-1.599754, 47.214311]
                 },
                 "properties": {
+                    "id": 11,
                     "band": "Odor",
                     "place": "vélodrome du Petit Breton",
                     "thumb": "assets/img/510x256/Odor.jpg",

@@ -187,7 +187,7 @@ $DATA = $DATA->data;
                     <p class="h2"><?php echo $item->band ?></p>
                     <p class="modal__place"><?php echo $item->place ?></p>
                     <p class="modal__desc"><?php echo $item->desc ?></p>
-                    <a href="<?php echo $item->maplink ?>" class="button button--black">Voir sur la carte</a>
+                    <a href="<?php echo $BASE_URL; ?>/?id=<?php echo $item->id; ?>" class="button button--black">Voir sur la carte</a>
                 </div>
                 <div class="modal__right">
                     <img src="<?php echo $item->img ?>" alt="" width="800" height="600">

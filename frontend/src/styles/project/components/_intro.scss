@@ -38,7 +38,8 @@ width: 100%;
     &__background {
         opacity: 0;
         background: url('../img/brush.png') center/contain  no-repeat;
-        width: 100%;height: 387px;
+        width: 100%;
+        // height: 387px;
         aspect-ratio: 1097 / 387;
         max-width: 1097px;
 
