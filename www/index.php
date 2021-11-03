@@ -11,14 +11,15 @@ include 'php-header.php';
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	<title>Sessions suspendues</title>
+	<title>Les Sessions Suspendues | Sourdoreille</title>
 	<meta name="description" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="manifest" href="site.webmanifest">
-	<link rel="apple-touch-icon" href="icon.png">
-	<!-- Place favicon.ico in the root directory -->
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="https://sourdoreille.net/2016/wp-content/themes/sourdoreille/img/favicon.png">
+	<link rel="icon" type="image/png" href="https://sourdoreille.net/2016/wp-content/themes/sourdoreille/img/favicon.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="https://sourdoreille.net/2016/wp-content/themes/sourdoreille/img/favicon2x.png" sizes="32x32">
 
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 
@@ -56,7 +57,6 @@ include 'php-header.php';
 	</header>
 
 	<main class="map" id="map">
-		</ma>
 
 		<!-- Template Full Popup -->
 		<div class="full-popup js-full-popup">
@@ -78,16 +78,22 @@ include 'php-header.php';
 
 		<div class="overlay js-overlay"></div>
 
-		<!-- https://philipwalton.com/articles/deploying-es2015-code-in-production-today/#is-this-really-worth-the-extra-effort%3F -->
-		<!-- Vendors -->
-		<script defer src="assets/js/vendors.bundle.js?v=<?php echo $VERSION; ?>"></script>
+	</main>
+	<script>
+		var SOURDO = window.SOURDO || {};
+		SOURDO.BASE_URL = '<?php echo $BASE_URL; ?>';
+	</script>
 
-		<!-- Browsers with ES module support load this file. -->
-		<script type="module" src="assets/js/main.es6.bundle.js?v=<?php echo $VERSION; ?>"></script>
+	<!-- https://philipwalton.com/articles/deploying-es2015-code-in-production-today/#is-this-really-worth-the-extra-effort%3F -->
+	<!-- Vendors -->
+	<script defer src="assets/js/vendors.bundle.js?v=<?php echo $VERSION; ?>"></script>
 
-		<!-- Older browsers load this file (and module-supporting -->
-		<!-- browsers know *not* to load this file). -->
-		<script defer nomodule src="assets/js/main.es5.bundle.js?v=<?php echo $VERSION; ?>"></script>
+	<!-- Browsers with ES module support load this file. -->
+	<script type="module" src="assets/js/main.es6.bundle.js?v=<?php echo $VERSION; ?>"></script>
+
+	<!-- Older browsers load this file (and module-supporting -->
+	<!-- browsers know *not* to load this file). -->
+	<script defer nomodule src="assets/js/main.es5.bundle.js?v=<?php echo $VERSION; ?>"></script>
 
 </body>
 

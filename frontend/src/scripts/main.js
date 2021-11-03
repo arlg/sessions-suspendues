@@ -10,17 +10,16 @@
 
 // Exemple d'import de librairies npm
 // node_modules
-// import baguetteBox from "baguettebox.js";
 
 /**
 	Components
 **/
-import { component } from "./components/_component";
+// import { component } from "./components/_component";
 
 /**
 	Classes
 **/
-import { MyClass } from "./classes/_myClass";
+// import { MyClass } from "./classes/_myClass";
 import { Map } from "./classes/Map";
 import { Intro } from "./classes/Intro";
 import { Modal } from "./classes/Modal";
@@ -28,10 +27,10 @@ import { Modal } from "./classes/Modal";
 /** DOM ready **/
 document.addEventListener("DOMContentLoaded", (event) => {
 	// Executer les components
-	component();
+	// component();
 
 	// Instancier les classes
-	const a = new MyClass();
+	// const a = new MyClass();
 	const b = new Map();
 	const c = new Intro();
 	const d = new Modal();

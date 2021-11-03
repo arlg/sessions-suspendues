@@ -40,7 +40,11 @@ class Map {
 	}
 
 	getData() {
-		fetch("../data/map.json")
+		let url = "../data/map.json";
+		if (SOURDO.BASE_URL == "/sessions-suspendues")
+			url = `https://sourdoreille.net${SOURDO.BASE_URL}/data/map.json`;
+
+		fetch(url)
 			.then((response) => {
 				return response.json();
 			})
