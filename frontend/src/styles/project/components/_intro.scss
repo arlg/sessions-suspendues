@@ -89,4 +89,8 @@
         }
     }
 
+    &.is-anim-out.is-active {
+        pointer-events: none;
+    }
+
 }

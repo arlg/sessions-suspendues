@@ -997,6 +997,8 @@ Controls
     opacity: 0;
     transform: scale(0);
     transition: opacity 0.5s cubic-bezier(0.44, 0.21, 0, 1), transform 0.4s cubic-bezier(0.44, 0.21, 0, 1); }
+  .intro.is-anim-out.is-active {
+    pointer-events: none; }
 
 .custom-div-icon {
   width: 40px;
