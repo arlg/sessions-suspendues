@@ -12,9 +12,16 @@ include 'php-header.php';
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
 	<title>Les Sessions Suspendues | Sourdoreille</title>
-	<meta name="description" content="">
+	<meta name="description" content="Une série portée par de courtes saynètes de fiction légères et décalées, tournées à Nantes.">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- META SHARE -->
+	<meta property="og:url" content="https://sourdoreille.net/sessions-suspendues/" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Les Sessions Suspendues | Sourdoreille" />
+	<meta property="og:description" content="Une série portée par de courtes saynètes de fiction légères et décalées, tournées à Nantes." />
+	<meta property="og:image" content="https://sourdoreille.net/sessions-suspendues/assets/img/sessions_suspendues_share_img.jpg" />
 
 	<!-- FAVICON -->
 	<link rel="shortcut icon" href="https://sourdoreille.net/2016/wp-content/themes/sourdoreille/img/favicon.png">

@@ -38,6 +38,10 @@ $modal-background: #fff;
         width: 50%;
         margin-right: 5%;
         max-width: 500px;
+
+        img {
+        	display: none;
+        }
     }
 
     &__right {
@@ -99,6 +103,9 @@ $modal-background: #fff;
 	}
 
     @media(max-width: 720px){
+    	&__inner {
+    		padding: 0 2rem 2rem 2rem;
+    	}
         &__left {
             width: 75%;
         }
@@ -107,9 +114,20 @@ $modal-background: #fff;
         }
     }
 
-    @media(max-width: 560px){
-        &__inner {
-            padding: 0 2rem 2rem 2rem;
+    @media(max-width: 580px){
+    	 .h2 {
+    	 	font-size: 2.8rem;
+    	 }
+    	&__left {
+    		width: 100%;
+    		margin-right: 0;
+    		img {
+    			display: block;
+    			margin-bottom: 2rem;
+    		}
+    	}
+        &__right {
+        	display: none;
         }
     }
 
@@ -118,12 +136,17 @@ $modal-background: #fff;
 			margin-top: 2rem;
 		}
         &__right {
-            display: none;
+            // display: none;
         }
 
         &__left {
             width: 100%;
             margin: 0 auto;
+        }
+
+        .button {
+        	padding: 0 2.5rem;
+        	margin-bottom: 2rem;
         }
     }
 }

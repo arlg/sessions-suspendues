@@ -1286,6 +1286,8 @@ Controls
     width: 50%;
     margin-right: 5%;
     max-width: 500px; }
+    .modal__left img {
+      display: none; }
   .modal__right {
     width: 45%;
     margin-top: 7rem;
@@ -1325,20 +1327,31 @@ Controls
     height: 26px;
     background: url("../img/close-black.svg"); }
   @media (max-width: 720px) {
+    .modal__inner {
+      padding: 0 2rem 2rem 2rem; }
     .modal__left {
       width: 75%; }
     .modal__right {
       width: 20%; } }
-  @media (max-width: 560px) {
-    .modal__inner {
-      padding: 0 2rem 2rem 2rem; } }
+  @media (max-width: 580px) {
+    .modal .h2 {
+      font-size: 2.8rem; }
+    .modal__left {
+      width: 100%;
+      margin-right: 0; }
+      .modal__left img {
+        display: block;
+        margin-bottom: 2rem; }
+    .modal__right {
+      display: none; } }
   @media (max-width: 480px) {
     .modal__inner {
       margin-top: 2rem; }
-    .modal__right {
-      display: none; }
     .modal__left {
       width: 100%;
-      margin: 0 auto; } }
+      margin: 0 auto; }
+    .modal .button {
+      padding: 0 2.5rem;
+      margin-bottom: 2rem; } }
 
 /*# sourceMappingURL=main.css.map */

@@ -124,8 +124,8 @@
                 "properties": {
                     "id": 2,
                     "band": "Mad Foxes",
-                    "place": "manoir abandonné",
-                    "thumb": "assets/img/510x256/Madfoxestel.jpg",
+                    "place": "usine Guillouard",
+                    "thumb": "assets/img/510x256/Mad_foxes_bis.jpg",
                     "url": "<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/E3Sb1x2VRx8'  frameborder='0' allow='accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
                 }
             },

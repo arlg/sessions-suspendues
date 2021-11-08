@@ -15,9 +15,16 @@ $DATA = $DATA->data;
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>Les Sessions Suspendues - à propos | Sourdoreille</title>
-    <meta name="description" content="">
+    <meta name="description" content="Une série portée par de courtes saynètes de fiction légères et décalées, tournées à Nantes.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- META SHARE -->
+    <meta property="og:url" content="https://sourdoreille.net/sessions-suspendues/a-propos" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Les Sessions Suspendues - à propos | Sourdoreille" />
+    <meta property="og:description" content="Une série portée par de courtes saynètes de fiction légères et décalées, tournées à Nantes." />
+    <meta property="og:image" content="https://sourdoreille.net/sessions-suspendues/assets/img/sessions_suspendues_share_img.jpg" />
 
     <!-- FAVICON -->
     <link rel="shortcut icon" href="https://sourdoreille.net/2016/wp-content/themes/sourdoreille/img/favicon.png">
@@ -189,6 +196,7 @@ $DATA = $DATA->data;
                 <div class="modal__left">
                     <p class="h2"><?php echo $item->band ?></p>
                     <p class="modal__place"><?php echo $item->place ?></p>
+                    <img src="<?php echo $item->img ?>" alt="" width="800" height="600">
                     <p class="modal__desc"><?php echo $item->desc ?></p>
                     <a href="<?php echo $BASE_URL; ?>/?id=<?php echo $item->id; ?>" class="button button--black">Voir sur la carte</a>
                 </div>
