@@ -28,6 +28,9 @@ include 'php-header.php';
 	<link rel="icon" type="image/png" href="https://sourdoreille.net/2016/wp-content/themes/sourdoreille/img/favicon.png" sizes="16x16">
 	<link rel="icon" type="image/png" href="https://sourdoreille.net/2016/wp-content/themes/sourdoreille/img/favicon2x.png" sizes="32x32">
 
+	<!-- Canonical -->
+	<link rel="canonical" href="https://sourdoreille.net/sessions-suspendues/" />
+
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 
 	<!-- <link rel="stylesheet" href="assets/css/leaflet.css"> -->

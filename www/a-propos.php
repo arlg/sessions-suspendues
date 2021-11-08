@@ -31,9 +31,12 @@ $DATA = $DATA->data;
     <link rel="icon" type="image/png" href="https://sourdoreille.net/2016/wp-content/themes/sourdoreille/img/favicon.png" sizes="16x16">
     <link rel="icon" type="image/png" href="https://sourdoreille.net/2016/wp-content/themes/sourdoreille/img/favicon2x.png" sizes="32x32">
 
+    <!-- Canonical -->
+    <link rel="canonical" href="https://sourdoreille.net/sessions-suspendues/a-propos" />
+
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" /> -->
 
     <!-- <link rel="stylesheet" href="assets/css/leaflet.css"> -->
     <link rel="stylesheet" href="assets/css/main.css?v=<?php echo $VERSION; ?>">
@@ -129,11 +132,11 @@ $DATA = $DATA->data;
         <section class="pp__pics">
             <div class="container container--content">
                 <div class="pp__pics__row">
-                    <img src="assets/img/a-propos/pics/Suspendues-Stills_1.43.jpg" alt="" width="325" height="163">
-                    <img src="assets/img/a-propos/pics/Suspendues-Stills_1.218.jpg" alt="" width="323" height="163">
-                    <img src="assets/img/a-propos/pics/Suspendues-Stills_1.320.jpg" alt="" width="325" height="163">
-                    <img src="assets/img/a-propos/pics/Suspendues-Stills_1.414.jpg" alt="" width="323" height="163">
-                    <img src="assets/img/a-propos/pics/Suspendues-Stills_1.547.jpg" alt="" width="325" height="163">
+                    <img src="assets/img/a-propos/pics/Suspendues-Stills_1.43.jpg" alt="" width="325" height="163" loading="lazy">
+                    <img src="assets/img/a-propos/pics/Suspendues-Stills_1.218.jpg" alt="" width="323" height="163" loading="lazy">
+                    <img src="assets/img/a-propos/pics/Suspendues-Stills_1.320.jpg" alt="" width="325" height="163" loading="lazy">
+                    <img src="assets/img/a-propos/pics/Suspendues-Stills_1.414.jpg" alt="" width="323" height="163" loading="lazy">
+                    <img src="assets/img/a-propos/pics/Suspendues-Stills_1.547.jpg" alt="" width="325" height="163" loading="lazy">
                 </div>
             </div>
         </section>
@@ -142,13 +145,13 @@ $DATA = $DATA->data;
             <div class="container container--content">
                 <div class="pp__logos-1__row">
                     <div class="pp__logos-1__col">
-                        <img src="assets/img/a-propos/logos-1/Logo_sourdo.png" alt="" width="234" height="166">
+                        <img src="assets/img/a-propos/logos-1/Logo_sourdo.png" alt="" width="234" height="166" loading="lazy">
                     </div>
                     <div class="pp__logos-1__col">
-                        <img src="assets/img/a-propos/logos-1/Logo_stereolux.png" alt="" width="235" height="166">
+                        <img src="assets/img/a-propos/logos-1/Logo_stereolux.png" alt="" width="235" height="166" loading="lazy">
                     </div>
                     <div class="pp__logos-1__col">
-                        <img src="assets/img/a-propos/logos-1/Logo_fr3.png" alt="" width="234" height="166">
+                        <img src="assets/img/a-propos/logos-1/Logo_fr3.png" alt="" width="234" height="166" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -163,12 +166,12 @@ $DATA = $DATA->data;
         <section class="pp__logos-2">
             <div class="container container--content">
                 <div class="pp__logos-2__row">
-                    <img src="assets/img/a-propos/logos-2/Logo_soufflerie.png" alt="" width="183" height="130">
-                    <img src="assets/img/a-propos/logos-2/Logo_6par4.png" alt="" width="183" height="130">
-                    <img src="assets/img/a-propos/logos-2/Logo_fuzzyon.png" alt="" width="183" height="130">
-                    <img src="assets/img/a-propos/logos-2/Logo_vip.png" alt="" width="183" height="130">
-                    <img src="assets/img/a-propos/logos-2/Logo_chabada.png" alt="" width="184" height="130">
-                    <img src="assets/img/a-propos/logos-2/Logo_superforma.png" alt="" width="184" height="130">
+                    <img src="assets/img/a-propos/logos-2/Logo_soufflerie.png" alt="" width="183" height="130" loading="lazy">
+                    <img src="assets/img/a-propos/logos-2/Logo_6par4.png" alt="" width="183" height="130" loading="lazy">
+                    <img src="assets/img/a-propos/logos-2/Logo_fuzzyon.png" alt="" width="183" height="130" loading="lazy">
+                    <img src="assets/img/a-propos/logos-2/Logo_vip.png" alt="" width="183" height="130" loading="lazy">
+                    <img src="assets/img/a-propos/logos-2/Logo_chabada.png" alt="" width="184" height="130" loading="lazy">
+                    <img src="assets/img/a-propos/logos-2/Logo_superforma.png" alt="" width="184" height="130" loading="lazy">
                 </div>
             </div>
         </section>
@@ -178,8 +181,8 @@ $DATA = $DATA->data;
     <footer class="footer">
         <div class="container container--content">
             <p class="footer__title">Avec le soutien du Centre national de la musique</p>
-            <img class="footer__logo" src="assets/img/a-propos/logos-3/Logo_cnm.png" alt="Centre National de la musique" width="184" height="130">
-            <img class="footer__place" src="assets/img/marker.svg" alt="" width="60" height="60">
+            <img class="footer__logo" src="assets/img/a-propos/logos-3/Logo_cnm.png" alt="Centre National de la musique" width="184" height="130" loading="lazy">
+            <img class="footer__place" src="assets/img/marker.svg" alt="" width="60" height="60" loading="lazy">
             <p>Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.
             </p>
         </div>
@@ -196,12 +199,12 @@ $DATA = $DATA->data;
                 <div class="modal__left">
                     <p class="h2"><?php echo $item->band ?></p>
                     <p class="modal__place"><?php echo $item->place ?></p>
-                    <img src="<?php echo $item->img ?>" alt="" width="800" height="600">
+                    <img src="<?php echo $item->img ?>" alt="" width="800" height="600" loading="lazy">
                     <p class="modal__desc"><?php echo $item->desc ?></p>
                     <a href="<?php echo $BASE_URL; ?>/?id=<?php echo $item->id; ?>" class="button button--black">Voir sur la carte</a>
                 </div>
                 <div class="modal__right">
-                    <img src="<?php echo $item->img ?>" alt="" width="800" height="600">
+                    <img src="<?php echo $item->img ?>" alt="" width="800" height="600" loading="lazy">
                 </div>
             </div>
         </div>
