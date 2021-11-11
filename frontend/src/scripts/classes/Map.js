@@ -119,14 +119,6 @@ class Map {
 				// this.onPopupClick(_props);
 				window.ee.emitEvent("onFullPopupChange", [_props]);
 			});
-
-			// Open / Close
-			// layer.on("mouseover", function (e) {
-			// 	this.openPopup();
-			// });
-			// layer.on("mouseout", function (e) {
-			// 	this.closePopup();
-			// });
 		}
 	}
 

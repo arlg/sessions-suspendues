@@ -42,6 +42,11 @@ class FullPopup {
 	close() {
 		this.dom.fullPopup.classList.remove("is-active");
 		this.dom.overlay.classList.remove("is-active");
+
+		setTimeout(()=> {
+			this.dom.fullPopup.querySelector(".full-popup__embed").innerHTML =
+		"";
+		}, 100);
 	}
 }
 

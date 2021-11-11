@@ -4,14 +4,6 @@
 ***/
 
 /**
-	IMPORTS
-**/
-// Import local
-
-// Exemple d'import de librairies npm
-// node_modules
-
-/**
 	Components
 **/
 // import { component } from "./components/_component";
@@ -34,4 +26,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	const b = new Map();
 	const c = new Intro();
 	const d = new Modal();
+
+	console.log(
+		"Design : Marianne - https://in-august.com/ / Développement : Aurélien - https://aurel.link/"
+	);
 });
