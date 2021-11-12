@@ -25,6 +25,7 @@ $DATA = $DATA->data;
     <meta property="og:title" content="Les Sessions Suspendues - à propos | Sourdoreille" />
     <meta property="og:description" content="Une série portée par de courtes saynètes de fiction légères et décalées, tournées à Nantes." />
     <meta property="og:image" content="https://sourdoreille.net/sessions-suspendues/assets/img/sessions_suspendues_share_img.jpg" />
+    <meta property="fb:app_id" content="1210142425738129">
 
     <!-- FAVICON -->
     <link rel="shortcut icon" href="https://sourdoreille.net/2016/wp-content/themes/sourdoreille/img/favicon.png">
@@ -34,14 +35,10 @@ $DATA = $DATA->data;
     <!-- Canonical -->
     <link rel="canonical" href="https://sourdoreille.net/sessions-suspendues/a-propos" />
 
-
-    <!-- CSS -->
-    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" /> -->
-
-    <!-- <link rel="stylesheet" href="assets/css/leaflet.css"> -->
     <link rel="stylesheet" href="assets/css/main.css?v=<?php echo $VERSION; ?>">
 
     <meta name="theme-color" content="#fafafa">
+
 </head>
 
 <body class="template-a-propos">

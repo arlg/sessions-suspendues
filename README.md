@@ -1,7 +1,9 @@
-## Fonctionnement
-Ceci est juste un template de starter pour une page statique HTML / PHP
-Les styles et javascript sont compilés dans le dossier /www comme pour un thème Wordpress.
+## Sessions Suspendues
+Code source du site en ligne ici : https://sourdoreille.net/sessions-suspendues/
+Carte interactive utilisant Leaflet pour l'affichage des marqueurs et des popins.
 
-La base de /frontend est la même partagée avec le starter-kit Wordpress et le starter Timber.
+### Starter Kit
+Base de starter Gulp pour une page statique HTML / PHP
+Les styles et javascript sont compilés dans le dossier /www.
 
 Le contenu du dossier /www se base sur HTML 5 Boilerplate.

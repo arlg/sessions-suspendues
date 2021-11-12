@@ -20,8 +20,7 @@ if (!defined('ENVIRONMENT')) {
 }
 
 $BASE_URL = "";
-$VERSION = 0;
+$VERSION = 2;
 if (ENVIRONMENT == "production") {
     $BASE_URL = "/sessions-suspendues";
-    $VERSION = time();
 }

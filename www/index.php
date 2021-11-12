@@ -18,10 +18,11 @@ include 'php-header.php';
 
 	<!-- META SHARE -->
 	<meta property="og:url" content="https://sourdoreille.net/sessions-suspendues/" />
-	<meta property="og:type" content="article" />
+	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Les Sessions Suspendues | Sourdoreille" />
 	<meta property="og:description" content="Une série portée par de courtes saynètes de fiction légères et décalées, tournées à Nantes." />
 	<meta property="og:image" content="https://sourdoreille.net/sessions-suspendues/assets/img/sessions_suspendues_share_img.jpg" />
+	<meta property="fb:app_id" content="1210142425738129">
 
 	<!-- FAVICON -->
 	<link rel="shortcut icon" href="https://sourdoreille.net/2016/wp-content/themes/sourdoreille/img/favicon.png">
@@ -37,6 +38,8 @@ include 'php-header.php';
 	<link rel="stylesheet" href="assets/css/main.css?v=<?php echo $VERSION; ?>">
 
 	<meta name="theme-color" content="#fafafa">
+
+
 </head>
 
 <body>
@@ -68,7 +71,9 @@ include 'php-header.php';
 
 	<main class="map" id="map">
 
-		<!-- Template Full Popup -->
+	</main>
+
+	<!-- Template Full Popup -->
 		<div class="full-popup js-full-popup">
 			<div class="full-popup__header">
 				<h2></h2>
@@ -88,7 +93,6 @@ include 'php-header.php';
 
 		<div class="overlay js-overlay"></div>
 
-	</main>
 	<script>
 		var SOURDO = window.SOURDO || {};
 		SOURDO.BASE_URL = '<?php echo $BASE_URL; ?>';

@@ -4,14 +4,23 @@
 	top: 50%;
 	left: 50%;
 	z-index: 1000;
-	height: 100%; // Ajout
-	width: 95vw;
+	// height: 100%; // Ajout
+	width: 80%;
 	z-index: 1001;
 	max-width: 1440px;
 	padding: 2rem 4rem;
 	background: #000;
 	transform: translate3d(-50%, -50%, 0);
 	max-height: 90vh;
+	overflow: hidden;
+
+	@media(max-width: 1440px) {
+		width: 90%;
+	}
+
+	// @media(max-width: 720px) {
+	// 	max-width: 85vw;
+	// }
 
 	&.is-active {
 		display: block;
@@ -24,6 +33,9 @@
 		flex-flow: row wrap;
 		max-width: calc(100% - 10px);
 
+		@media(max-width: 720px) {
+			max-width: calc(100% - 40px);
+		}
 	}
 
 	h2 {
@@ -50,11 +62,15 @@
 	}
 
 	&__embed {
-		height: calc(100% - 55px);
+		height: calc(90vh - 4rem - 53px);
 		iframe {
 			width: 100%;
-			aspect-ratio: 16/9; // Ajout
 			height: 100%;
+			aspect-ratio: 16 / 9; // Ajout
+		}
+
+		@media(max-width: 720px) {
+			height: auto;
 		}
 	}
 
@@ -65,9 +81,12 @@
 		width: 26px;
 		height: 26px;
 		background: url('../img/close.svg');
+		transform: rotate(0);
+		transition: transform 0.3s $custom-ease-in;
 
 		&:hover {
-
+			transform: rotate(-90deg);
+			transition: transform 0.4s $custom-ease-out;
 		}
 	}
 
